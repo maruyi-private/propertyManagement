@@ -1,0 +1,13 @@
+
+.icon-right {
+	line-height: 40rpx;
+	text-align: center;
+	width: 40rpx;
+	height: 40rpx;
+	padding: 5rpx;
+	border: 1rpx solid #ed7130;
+	border-radius: 50%;
+	font-weight: 700;
+	color: #ed7130;
+}
+

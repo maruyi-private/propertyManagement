@@ -1,0 +1,9 @@
+
+page{
+	background: #FFFFFF;
+}
+.header{
+	line-height: 80rpx;
+	text-align: center;
+}
+

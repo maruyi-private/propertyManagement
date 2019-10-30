@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"border{ height: ",[0,80],"; line-height: ",[0,80],"; padding: ",[0,10],"; border-bottom: ",[0,1]," solid #EEEEEE; }\n.",[1],"border wx-input{ height: ",[0,80],"; line-height: ",[0,80],"; }\n",],undefined,{path:"./pages/main/maintenance/add-person.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/main/maintenance/add-person.wxml') } }));

@@ -1,0 +1,139 @@
+
+page {
+	background: #ffffff;
+}
+.housekeeper-content {
+	margin-bottom: 120rpx;
+	background: #FFFFFF;
+}
+.housekeeper {
+	height: 160rpx;
+	border-radius: 10rpx;
+}
+.housekeeper-header {
+	height: 120rpx;
+	width: 120rpx;
+	border-radius: 50%;
+}
+.housekeeper-btn {
+	height: 70rpx;
+	width: 160rpx;
+	line-height: 70rpx;
+	border: 2rpx solid #ffc392;
+	border-radius: 50rpx;
+	color: #ff972a;
+	font-size: 24rpx;
+	text-align: center;
+}
+._box {
+	border-radius: 10rpx;
+	-webkit-box-shadow: 3rpx 3rpx 8rpx #bebebe;
+	        box-shadow: 3rpx 3rpx 8rpx #bebebe;
+	padding: 10rpx;
+}
+._box-title {
+	font-size: 38rpx;
+	color: #898989;
+	font-weight: 700;
+}
+.uni-grid-9 {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.uni-grid-9-item {
+	width: 33%;
+	height: 160rpx;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	border-color: #eee;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.uni-grid-9-item-text {
+	text-align: center;
+	font-size: 24rpx;
+}
+.image {
+	height: 60rpx;
+	width: 60rpx;
+}
+.interest-title {
+	line-height: 160rpx;
+	font-size: 36rpx;
+	color: #898989;
+	font-weight: 700;
+}
+.cleanfloat {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-right: 20rpx;
+}
+.user-eval-header {
+	height: 80rpx;
+	width: 80rpx;
+	border-radius: 50%;
+}
+.housekeeper-foot {
+	background: #FFFFFF;
+	width: 100%;
+	height: 120rpx;
+	position: fixed;
+	bottom: 0rpx;
+}
+.btn-sub {
+	background: -webkit-linear-gradient(left, #ffb200, #fe8502);
+	bottom: 10rpx;
+	border-radius: 50rpx;
+	width: 90%;
+	height: 70rpx;
+	line-height: 70rpx;
+	font-size: 26rpx;
+}
+.mark{
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+}
+.mark-content{
+	width: 80%;
+	height: 500rpx;
+	background: #FFFFFF;
+	z-index: 999;
+	border-radius: 10rpx;
+}
+.mark-close{
+	text-align: center;
+	font-size: 34rpx;
+	border-radius: 50%;
+	border: 1rpx solid #FFFFFF;
+	width: 60rpx;
+	color: #FFFFFF;
+	margin-top: 40rpx;
+}
+

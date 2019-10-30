@@ -1,0 +1,14 @@
+
+.cleanfloat {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-right: 20rpx;
+}
+.user-eval-header {
+	height: 80rpx;
+	width: 80rpx;
+	border-radius: 50%;
+}
+

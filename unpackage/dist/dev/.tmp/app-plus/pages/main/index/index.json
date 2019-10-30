@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-grid": "/components/uni-grid/uni-grid",
+    "uni-grid-item": "/components/uni-grid-item/uni-grid-item",
+    "yomol-upgrade": "/components/yomol-upgrade/yomol-upgrade",
+    "li-toast": "/components/li-toast/li-toast"
+  }
+}

@@ -1,0 +1,33 @@
+.build_content {
+  width: 100%;
+  background: #ffffff;
+  margin-bottom: 120rpx;
+}
+.change-build {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40rpx;
+  border-bottom: 0.8rpx solid #c9ccd3;
+  padding: 11px 0px;
+}
+.change-build input {
+    line-height: 80rpx;
+}
+.information {
+  margin-top: 80rpx;
+}
+.foot-btn {
+  width: 100%;
+  border: none;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #ff8402;
+  color: #ffffff;
+  text-align: center;
+  position: fixed;
+  bottom: 0rpx;
+  border-radius: 0rpx;
+}
+

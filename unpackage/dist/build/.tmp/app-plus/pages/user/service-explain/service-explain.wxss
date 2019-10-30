@@ -1,0 +1,11 @@
+
+page {
+	background: #ffffff;
+}
+._p{
+	color: #898989;
+}
+.agreement-content {
+	margin: 20rpx;
+}
+

@@ -1,0 +1,48 @@
+.payment-content {
+	background: #ffffff;
+	padding: 10upx;
+}
+.payment-content-cell {
+	display: flex;
+	margin: 10upx;
+	border-bottom: 1upx solid #f2f2f2;
+	padding-bottom: 20upx;
+}
+.pay-type {
+	line-height: 100upx;
+}
+.pay-icon {
+	height: 80upx;
+	width: 80upx;
+	border-radius: 20upx;
+}
+.rmbLogo {
+	font-size: 40upx;
+}
+.uni-cell-lineheight-80 {
+	padding-left: 30upx;
+}
+
+button {
+	background-color: #ff913b;
+	color: #ffffff;
+	border-radius: 50upx;
+}
+
+.uni-h1.uni-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.price {
+	border-bottom: 1px solid #eee;
+	width: 300upx;
+	height: 80upx;
+	padding-bottom: 4upx;
+}
+
+.ipaPayBtn {
+	margin-top: 30upx;
+}

@@ -1,0 +1,131 @@
+
+page {
+	background: #ffffff;
+}
+
+
+.housekeeper-content {
+	margin-bottom: 120upx;
+	background: #FFFFFF;
+}
+
+.housekeeper {
+	height: 160upx;
+	border-radius: 10upx;
+}
+
+.housekeeper-header {
+	height: 120upx;
+	width: 120upx;
+	border-radius: 50%;
+}
+
+.housekeeper-btn {
+	height: 70upx;
+	width: 160upx;
+	line-height: 70upx;
+	border: 2upx solid #ffc392;
+	border-radius: 50upx;
+	color: #ff972a;
+	font-size: 24upx;
+	text-align: center;
+}
+
+._box {
+	border-radius: 10upx;
+	box-shadow: 3upx 3upx 8upx #bebebe;
+	padding: 10upx;
+}
+
+._box-title {
+	font-size: 38upx;
+	color: #898989;
+	font-weight: 700;
+}
+
+.uni-grid-9 {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.uni-grid-9-item {
+	width: 33%;
+	height: 160upx;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-color: #eee;
+	box-sizing: border-box;
+}
+
+.uni-grid-9-item-text {
+	text-align: center;
+	font-size: 24upx;
+}
+
+.image {
+	height: 60upx;
+	width: 60upx;
+}
+
+.interest-title {
+	line-height: 160upx;
+	font-size: 36upx;
+	color: #898989;
+	font-weight: 700;
+}
+
+.cleanfloat {
+	display: flex;
+	margin-right: 20upx;
+}
+
+.user-eval-header {
+	height: 80upx;
+	width: 80upx;
+	border-radius: 50%;
+}
+
+.housekeeper-foot {
+	background: #FFFFFF;
+	width: 100%;
+	height: 120upx;
+	position: fixed;
+	bottom: 0upx;
+}
+
+.btn-sub {
+	background: -webkit-linear-gradient(left, #ffb200, #fe8502);
+	bottom: 10upx;
+	border-radius: 50upx;
+	width: 90%;
+	height: 70upx;
+	line-height: 70upx;
+	font-size: 26upx;
+}
+
+.mark{
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+}
+.mark-content{
+	width: 80%;
+	height: 500upx;
+	background: #FFFFFF;
+	z-index: 999;
+	border-radius: 10upx;
+}
+.mark-close{
+	text-align: center;
+	font-size: 34upx;
+	border-radius: 50%;
+	border: 1upx solid #FFFFFF;
+	width: 60upx;
+	color: #FFFFFF;
+	margin-top: 40upx;
+}

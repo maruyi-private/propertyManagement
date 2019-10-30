@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"content-card{ background: #FFFFFF; border-radius: ",[0,6],"; padding: ",[0,20],"; }\n.",[1],"uni-font-36{ border-bottom: ",[0,1]," solid #EDEDED; line-height: ",[0,80],"; }\n.",[1],"uni-flex-btw{ height: ",[0,80],"; }\n",],undefined,{path:"./pages/main/est-pay/choose-type.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/main/est-pay/choose-type.wxml') } }));

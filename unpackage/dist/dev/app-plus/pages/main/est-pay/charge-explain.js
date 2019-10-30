@@ -1,0 +1,2 @@
+setCssToHead(["body { background: #ffffff; }\n.",[1],"content { margin: ",[0,40],"; color: #898989; }\n",],undefined,{path:"./pages/main/est-pay/charge-explain.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/main/est-pay/charge-explain.wxml') } }));

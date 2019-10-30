@@ -1,0 +1,12 @@
+
+.order-content.data-v-5cdeda2d {
+	height: 180rpx;
+	display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+	word-break: break-all;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	-webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+	-webkit-line-clamp: 4; /** 显示的行数 **/
+	overflow: hidden;
+}
+

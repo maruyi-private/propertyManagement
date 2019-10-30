@@ -1,0 +1,16 @@
+{
+  "bounce": "none",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "添加房屋",
+        "fontSize": "12px",
+        "width": "80px",
+        "color": "#DB9444"
+      }
+    ]
+  },
+  "usingComponents": {
+    "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action"
+  }
+}

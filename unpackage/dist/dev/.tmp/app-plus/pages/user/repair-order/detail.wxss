@@ -1,0 +1,16 @@
+page.data-v-5bcc5c04 {
+  background: #ffffff;
+}
+.uni-timeline.data-v-5bcc5c04 {
+  padding: 22rpx 30rpx;
+  background: #ffffff;
+}
+.uni-media-list-logo.data-v-5bcc5c04 {
+  border-radius: 50%;
+}
+.detail-person.data-v-5bcc5c04 {
+  margin: 35rpx 0;
+  background: #ffffff;
+  padding: 30rpx;
+}
+

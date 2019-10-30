@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "评价管家",
+  "bounce": "none",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "提交",
+        "fontSize": "14px",
+        "width": "80px",
+        "color": "#ff8c13"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

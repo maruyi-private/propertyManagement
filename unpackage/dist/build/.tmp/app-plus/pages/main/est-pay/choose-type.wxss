@@ -1,0 +1,14 @@
+
+.content-card{
+	background: #FFFFFF;
+	border-radius: 6rpx;
+	padding: 20rpx;
+}
+.uni-font-36{
+	border-bottom: 1rpx solid #EDEDED;
+	line-height: 80rpx;
+}
+.uni-flex-btw{
+	height: 80rpx;
+}
+

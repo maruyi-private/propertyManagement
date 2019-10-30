@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"order-content.",[1],"data-v-180c7290 { height: ",[0,180],"; display: -webkit-box; word-break: break-all; -o-text-overflow: ellipsis; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }\n",],undefined,{path:"./pages/user/complain-order/complain-order.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/complain-order/complain-order.wxml') } }));

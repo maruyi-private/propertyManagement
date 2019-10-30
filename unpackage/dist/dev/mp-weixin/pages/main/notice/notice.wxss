@@ -1,0 +1,33 @@
+
+.notice-card {
+	background: #ffffff;
+	border-radius: 10rpx;
+	margin: 20rpx;
+}
+.notice-card .header {
+	width: 90%;
+	line-height: 60rpx;
+	padding-left: 10rpx;
+	border-left: 8rpx solid #007aff;
+}
+.notice-card .content {
+	padding: 10rpx;
+	font-size: 20rpx;
+	color: #898989;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+	height: 195rpx;
+	background: #FFFFFF;
+}
+.notice-card .foot{
+	color: #898989;
+	font-size: 20rpx;
+	text-align: right;
+	line-height: 40rpx;
+	padding-right: 10rpx;
+}
+

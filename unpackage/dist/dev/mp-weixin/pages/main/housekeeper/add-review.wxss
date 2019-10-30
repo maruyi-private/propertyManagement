@@ -1,0 +1,23 @@
+
+.iconfont {
+	font-size: 26px;
+	margin: 10rpx;
+}
+page {
+	background: #ffffff;
+}
+.cleanfloat {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 40rpx;
+}
+.text-input-area {
+	width: 90%;
+	border: 1rpx solid #eeeeee;
+	border-radius: 10rpx;
+	padding: 10rpx;
+	line-height: 40rpx;
+}
+

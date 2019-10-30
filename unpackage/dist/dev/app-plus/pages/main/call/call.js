@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"uni-media-list-body{ height: ",[0,45],"; }\n",],undefined,{path:"./pages/main/call/call.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/main/call/call.wxml') } }));

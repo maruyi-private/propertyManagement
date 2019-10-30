@@ -1,0 +1,2 @@
+setCssToHead(["body { background: #ffffff; }\n.",[1],"order-head { height: ",[0,400],"; width: 100%; }\n.",[1],"colorOrange { color: #ffffff; height: ",[0,80],"; border-radius: ",[0,50],"; line-height: ",[0,80],"; margin: ",[0,40],"; padding: ",[0,0]," ",[0,60],"; }\n",],undefined,{path:"./pages/user/order/detail.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/order/detail.wxml') } }));

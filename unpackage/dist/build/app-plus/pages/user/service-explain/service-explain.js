@@ -1,0 +1,2 @@
+setCssToHead(["body { background: #ffffff; }\n.",[1],"_p{ color: #898989; }\n.",[1],"agreement-content { margin: ",[0,20],"; }\n",],undefined,{path:"./pages/user/service-explain/service-explain.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/service-explain/service-explain.wxml') } }));

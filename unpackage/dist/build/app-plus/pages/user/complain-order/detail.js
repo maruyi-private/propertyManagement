@@ -1,0 +1,2 @@
+setCssToHead(["wx-page.",[1],"data-v-0113fa97 { background: #ffffff; }\n.",[1],"uni-timeline.",[1],"data-v-0113fa97 { padding: ",[0,22]," ",[0,30],"; background: #ffffff; }\n.",[1],"uni-media-list-logo.",[1],"data-v-0113fa97 { border-radius: 50%; }\n.",[1],"detail-person.",[1],"data-v-0113fa97 { margin: ",[0,35]," 0; background: #ffffff; padding: ",[0,30],"; }\n",],undefined,{path:"./pages/user/complain-order/detail.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/complain-order/detail.wxml') } }));

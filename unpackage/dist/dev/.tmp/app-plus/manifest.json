@@ -1,0 +1,226 @@
+{
+  "@platforms": [
+    "android",
+    "iPhone",
+    "iPad"
+  ],
+  "id": "__UNI__39EE0C2",
+  "name": "阳光慧管家",
+  "version": {
+    "name": "1.0.7",
+    "code": 107
+  },
+  "description": "智慧美好生活从这里开启",
+  "launch_path": "__uniappview.html",
+  "developer": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "permissions": {
+    "Payment": {},
+    "Push": {},
+    "Maps": {
+      "coordType": "gcj02"
+    },
+    "Share": {},
+    "Contacts": {},
+    "OAuth": {},
+    "UniNView": {
+      "description": "UniNView原生渲染"
+    }
+  },
+  "plus": {
+    "useragent": {
+      "value": "uni-app",
+      "concatenate": true
+    },
+    "splashscreen": {
+      "target": "id:1",
+      "autoclose": true,
+      "waiting": true,
+      "delay": 0
+    },
+    "popGesture": "close",
+    "launchwebview": {
+      "id": "1",
+      "kernel": "WKWebview",
+      "uni-app": "auto"
+    },
+    "statusbar": {
+      "immersed": "supportedDevice",
+      "style": "dark",
+      "background": "#FFFFFF"
+    },
+    "usingComponents": true,
+    "distribute": {
+      "icons": {
+        "android": {
+          "hdpi": "unpackage/res/icons/72x72.png",
+          "xhdpi": "unpackage/res/icons/96x96.png",
+          "xxhdpi": "unpackage/res/icons/144x144.png",
+          "xxxhdpi": "unpackage/res/icons/192x192.png"
+        },
+        "ios": {
+          "appstore": "unpackage/res/icons/1024x1024.png",
+          "ipad": {
+            "app": "unpackage/res/icons/76x76.png",
+            "app@2x": "unpackage/res/icons/152x152.png",
+            "notification": "unpackage/res/icons/20x20.png",
+            "notification@2x": "unpackage/res/icons/40x40.png",
+            "proapp@2x": "unpackage/res/icons/167x167.png",
+            "settings": "unpackage/res/icons/29x29.png",
+            "settings@2x": "unpackage/res/icons/58x58.png",
+            "spotlight": "unpackage/res/icons/40x40.png",
+            "spotlight@2x": "unpackage/res/icons/80x80.png"
+          },
+          "iphone": {
+            "app@2x": "unpackage/res/icons/120x120.png",
+            "app@3x": "unpackage/res/icons/180x180.png",
+            "notification@2x": "unpackage/res/icons/40x40.png",
+            "notification@3x": "unpackage/res/icons/60x60.png",
+            "settings@2x": "unpackage/res/icons/58x58.png",
+            "settings@3x": "unpackage/res/icons/87x87.png",
+            "spotlight@2x": "unpackage/res/icons/80x80.png",
+            "spotlight@3x": "unpackage/res/icons/120x120.png"
+          }
+        }
+      },
+      "splashscreen": {
+        "ios": {
+          "iphone": {
+            "portrait-896h@3x": "G:/work/uni-app/est-app/APP图标/ios/1242x2688px.png",
+            "portrait-896h@2x": "G:/work/uni-app/est-app/APP图标/ios/828x1792px.png",
+            "iphonex": "G:/work/uni-app/est-app/APP图标/ios/1125x2436px.png",
+            "retina55": "G:/work/uni-app/est-app/APP图标/ios/1242x2208px.png",
+            "retina47": "G:/work/uni-app/est-app/APP图标/ios/750x1334px.png",
+            "retina40": "G:/work/uni-app/est-app/APP图标/ios/640x1336px.png",
+            "retina35": "G:/work/uni-app/est-app/APP图标/ios/640x960px.png"
+          }
+        },
+        "android": {
+          "hdpi": "G:/work/uni-app/est-app/APP图标/android/480x762px.png",
+          "xhdpi": "G:/work/uni-app/est-app/APP图标/android/720X1242px.png",
+          "xxhdpi": "G:/work/uni-app/est-app/APP图标/android/1080x1882px.png"
+        }
+      },
+      "google": {
+        "permissions": [
+          "<uses-feature android:name=\"android.hardware.camera\"/>",
+          "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+          "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+          "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+          "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+          "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+          "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+          "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+          "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+          "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+          "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+          "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+          "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+          "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+          "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+          "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+          "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+          "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+          "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+          "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+          "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+          "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+          "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+          "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+        ]
+      },
+      "apple": {
+        "privacyDescription": {
+          "NSPhotoLibraryUsageDescription": "获取相册权限用于上传图片",
+          "NSPhotoLibraryAddUsageDescription": "获取相册权限用于拍照上传图片",
+          "NSCameraUsageDescription": "获取摄像头权限用于拍照上传图片",
+          "NSMicrophoneUsageDescription": "获取相册权限用于拍照上传图片",
+          "NSLocationWhenInUseUsageDescription": "运行期间访问位置权限用于用户定位位置",
+          "NSLocationAlwaysUsageDescription": "后台运行访问位置权限用于用户定位位置",
+          "NSLocationAlwaysAndWhenInUseUsageDescription": "访问位置权限用于用户定位位置",
+          "NSContactsUsageDescription": "通讯录权限用于用户拨打电话",
+          "NSAppleMusicUsageDescription": "媒体资料库权限用于获取照片上传"
+        },
+        "capabilities": {
+          "entitlements": {
+            "com.apple.developer.associated-domains": [
+              "applinks:api.yangguangzhiye.cn"
+            ]
+          }
+        }
+      },
+      "plugins": {
+        "payment": {
+          "weixin": {
+            "appid": "wx208724eedb83ffb4",
+            "UniversalLinks": "https://api.yangguangzhiye.cn/ulink/"
+          },
+          "alipay": {}
+        },
+        "oauth": {
+          "weixin": {
+            "appid": "wx208724eedb83ffb4",
+            "appsecret": "c791feb71d3f2a95a18f0c7369bb4d31",
+            "UniversalLinks": "https://api.yangguangzhiye.cn/ulink/"
+          }
+        },
+        "push": {
+          "unipush": {}
+        },
+        "statics": {},
+        "audio": {
+          "mp3": {
+            "description": "Android平台录音支持MP3格式文件"
+          }
+        }
+      }
+    },
+    "allowsInlineMediaPlayback": true,
+    "safearea": {
+      "background": "#ffffff",
+      "bottom": {
+        "offset": "auto"
+      }
+    },
+    "uni-app": {
+      "compilerVersion": "2.3.7",
+      "control": "v8",
+      "nvueCompiler": "weex",
+      "renderer": "auto"
+    },
+    "tabBar": {
+      "color": "#7a7e83",
+      "selectedColor": "#ffcc66",
+      "backgroundColor": "#ffffff",
+      "list": [
+        {
+          "pagePath": "pages/main/index/index",
+          "text": "首页",
+          "iconPath": "static/img/icon/home.png",
+          "selectedIconPath": "static/img/icon/home-active.png"
+        },
+        {
+          "pagePath": "pages/shopping/shopping",
+          "text": "生活",
+          "iconPath": "static/img/icon/shopping.png",
+          "selectedIconPath": "static/img/icon/shopping-active.png"
+        },
+        {
+          "pagePath": "pages/user/center/center",
+          "text": "我的",
+          "iconPath": "static/img/icon/user.png",
+          "selectedIconPath": "static/img/icon/user-active.png"
+        }
+      ],
+      "borderStyle": "rgba(0,0,0,0.4)",
+      "height": "50px",
+      "child": [
+        "lauchwebview"
+      ],
+      "selected": 0
+    }
+  }
+}

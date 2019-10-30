@@ -1,0 +1,2 @@
+setCssToHead(["body { background: #ffffff; }\n.",[1],"agreement-content { margin: ",[0,20],"; }\n",],undefined,{path:"./pages/user/user-agreement/user-agreement.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/user-agreement/user-agreement.wxml') } }));

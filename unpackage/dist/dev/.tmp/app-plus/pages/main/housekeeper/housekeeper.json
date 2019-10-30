@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "我的管家",
+  "bounce": "none",
+  "titleNView": {
+    "buttons": [
+      {
+        "fontSize": "16px",
+        "width": "80px",
+        "color": "#ff8c13",
+        "type": "menu"
+      }
+    ]
+  },
+  "usingComponents": {
+    "user-review": "/components/user-review/user-review"
+  }
+}

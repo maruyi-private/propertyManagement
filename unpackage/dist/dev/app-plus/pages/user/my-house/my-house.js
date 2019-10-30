@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"icon-right { line-height: ",[0,40],"; text-align: center; width: ",[0,40],"; height: ",[0,40],"; padding: ",[0,5],"; border: ",[0,1]," solid #ed7130; border-radius: 50%; font-weight: 700; color: #ed7130; }\n",],undefined,{path:"./pages/user/my-house/my-house.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/my-house/my-house.wxml') } }));

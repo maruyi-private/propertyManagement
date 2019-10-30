@@ -1,0 +1,1 @@
+<block wx:if="{{show}}"><view class="data-v-67bccefb"><view class="li-toast data-v-67bccefb">{{test}}</view></view></block>

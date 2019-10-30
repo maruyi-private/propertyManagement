@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"uni-media-list-body{ }\n",],undefined,{path:"./pages/user/my-car/my-car.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/my-car/my-car.wxml') } }));

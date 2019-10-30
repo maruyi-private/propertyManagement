@@ -1,0 +1,2 @@
+setCssToHead(["body{ background: #FFFFFF; }\n.",[1],"header{ line-height: ",[0,80],"; text-align: center; }\n",],undefined,{path:"./pages/main/notice/detail.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/main/notice/detail.wxml') } }));

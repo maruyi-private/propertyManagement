@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "报事报修",
+  "usingComponents": {
+    "jianyi": "/pages/main/maintenance/tenance-jianyi",
+    "baoxiu": "/pages/main/maintenance/tenance-baoxiu"
+  }
+}

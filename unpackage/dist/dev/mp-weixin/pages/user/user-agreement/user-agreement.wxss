@@ -1,0 +1,8 @@
+
+page {
+	background: #ffffff;
+}
+.agreement-content {
+	margin: 20rpx;
+}
+
