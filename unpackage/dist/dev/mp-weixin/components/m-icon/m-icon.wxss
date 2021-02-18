@@ -18,271 +18,271 @@
 	color: #007aff;
 }
 .m-icon-contact:before {
-	content: '\E100';
+	content: '\e100';
 }
 .m-icon-person:before {
-	content: '\E101';
+	content: '\e101';
 }
 .m-icon-personadd:before {
-	content: '\E102';
+	content: '\e102';
 }
 .m-icon-contact-filled:before {
-	content: '\E130';
+	content: '\e130';
 }
 .m-icon-person-filled:before {
-	content: '\E131';
+	content: '\e131';
 }
 .m-icon-personadd-filled:before {
-	content: '\E132';
+	content: '\e132';
 }
 .m-icon-phone:before {
-	content: '\E200';
+	content: '\e200';
 }
 .m-icon-email:before {
-	content: '\E201';
+	content: '\e201';
 }
 .m-icon-chatbubble:before {
-	content: '\E202';
+	content: '\e202';
 }
 .m-icon-chatboxes:before {
-	content: '\E203';
+	content: '\e203';
 }
 .m-icon-phone-filled:before {
-	content: '\E230';
+	content: '\e230';
 }
 .m-icon-email-filled:before {
-	content: '\E231';
+	content: '\e231';
 }
 .m-icon-chatbubble-filled:before {
-	content: '\E232';
+	content: '\e232';
 }
 .m-icon-chatboxes-filled:before {
-	content: '\E233';
+	content: '\e233';
 }
 .m-icon-weibo:before {
-	content: '\E260';
+	content: '\e260';
 }
 .m-icon-weixin:before {
-	content: '\E261';
+	content: '\e261';
 }
 .m-icon-pengyouquan:before {
-	content: '\E262';
+	content: '\e262';
 }
 .m-icon-chat:before {
-	content: '\E263';
+	content: '\e263';
 }
 .m-icon-qq:before {
-	content: '\E264';
+	content: '\e264';
 }
 .m-icon-videocam:before {
-	content: '\E300';
+	content: '\e300';
 }
 .m-icon-camera:before {
-	content: '\E301';
+	content: '\e301';
 }
 .m-icon-mic:before {
-	content: '\E302';
+	content: '\e302';
 }
 .m-icon-location:before {
-	content: '\E303';
+	content: '\e303';
 }
 .m-icon-mic-filled:before,
 .m-icon-speech:before {
-	content: '\E332';
+	content: '\e332';
 }
 .m-icon-location-filled:before {
-	content: '\E333';
+	content: '\e333';
 }
 .m-icon-micoff:before {
-	content: '\E360';
+	content: '\e360';
 }
 .m-icon-image:before {
-	content: '\E363';
+	content: '\e363';
 }
 .m-icon-map:before {
-	content: '\E364';
+	content: '\e364';
 }
 .m-icon-compose:before {
-	content: '\E400';
+	content: '\e400';
 }
 .m-icon-trash:before {
-	content: '\E401';
+	content: '\e401';
 }
 .m-icon-upload:before {
-	content: '\E402';
+	content: '\e402';
 }
 .m-icon-download:before {
-	content: '\E403';
+	content: '\e403';
 }
 .m-icon-close:before {
-	content: '\E404';
+	content: '\e404';
 }
 .m-icon-redo:before {
-	content: '\E405';
+	content: '\e405';
 }
 .m-icon-undo:before {
-	content: '\E406';
+	content: '\e406';
 }
 .m-icon-refresh:before {
-	content: '\E407';
+	content: '\e407';
 }
 .m-icon-star:before {
-	content: '\E408';
+	content: '\e408';
 }
 .m-icon-plus:before {
-	content: '\E409';
+	content: '\e409';
 }
 .m-icon-minus:before {
-	content: '\E410';
+	content: '\e410';
 }
 .m-icon-circle:before,
 .m-icon-checkbox:before {
-	content: '\E411';
+	content: '\e411';
 }
 .m-icon-close-filled:before,
 .m-icon-clear:before {
-	content: '\E434';
+	content: '\e434';
 }
 .m-icon-refresh-filled:before {
-	content: '\E437';
+	content: '\e437';
 }
 .m-icon-star-filled:before {
-	content: '\E438';
+	content: '\e438';
 }
 .m-icon-plus-filled:before {
-	content: '\E439';
+	content: '\e439';
 }
 .m-icon-minus-filled:before {
-	content: '\E440';
+	content: '\e440';
 }
 .m-icon-circle-filled:before {
-	content: '\E441';
+	content: '\e441';
 }
 .m-icon-checkbox-filled:before {
-	content: '\E442';
+	content: '\e442';
 }
 .m-icon-closeempty:before {
-	content: '\E460';
+	content: '\e460';
 }
 .m-icon-refreshempty:before {
-	content: '\E461';
+	content: '\e461';
 }
 .m-icon-reload:before {
-	content: '\E462';
+	content: '\e462';
 }
 .m-icon-starhalf:before {
-	content: '\E463';
+	content: '\e463';
 }
 .m-icon-spinner:before {
-	content: '\E464';
+	content: '\e464';
 }
 .m-icon-spinner-cycle:before {
-	content: '\E465';
+	content: '\e465';
 }
 .m-icon-search:before {
-	content: '\E466';
+	content: '\e466';
 }
 .m-icon-plusempty:before {
-	content: '\E468';
+	content: '\e468';
 }
 .m-icon-forward:before {
-	content: '\E470';
+	content: '\e470';
 }
 .m-icon-back:before,
 .m-icon-left-nav:before {
-	content: '\E471';
+	content: '\e471';
 }
 .m-icon-checkmarkempty:before {
-	content: '\E472';
+	content: '\e472';
 }
 .m-icon-home:before {
-	content: '\E500';
+	content: '\e500';
 }
 .m-icon-navigate:before {
-	content: '\E501';
+	content: '\e501';
 }
 .m-icon-gear:before {
-	content: '\E502';
+	content: '\e502';
 }
 .m-icon-paperplane:before {
-	content: '\E503';
+	content: '\e503';
 }
 .m-icon-info:before {
-	content: '\E504';
+	content: '\e504';
 }
 .m-icon-help:before {
-	content: '\E505';
+	content: '\e505';
 }
 .m-icon-locked:before {
-	content: '\E506';
+	content: '\e506';
 }
 .m-icon-more:before {
-	content: '\E507';
+	content: '\e507';
 }
 .m-icon-flag:before {
-	content: '\E508';
+	content: '\e508';
 }
 .m-icon-home-filled:before {
-	content: '\E530';
+	content: '\e530';
 }
 .m-icon-gear-filled:before {
-	content: '\E532';
+	content: '\e532';
 }
 .m-icon-info-filled:before {
-	content: '\E534';
+	content: '\e534';
 }
 .m-icon-help-filled:before {
-	content: '\E535';
+	content: '\e535';
 }
 .m-icon-more-filled:before {
-	content: '\E537';
+	content: '\e537';
 }
 .m-icon-settings:before {
-	content: '\E560';
+	content: '\e560';
 }
 .m-icon-list:before {
-	content: '\E562';
+	content: '\e562';
 }
 .m-icon-bars:before {
-	content: '\E563';
+	content: '\e563';
 }
 .m-icon-loop:before {
-	content: '\E565';
+	content: '\e565';
 }
 .m-icon-paperclip:before {
-	content: '\E567';
+	content: '\e567';
 }
 .m-icon-eye:before {
-	content: '\E568';
+	content: '\e568';
 }
 .m-icon-arrowup:before {
-	content: '\E580';
+	content: '\e580';
 }
 .m-icon-arrowdown:before {
-	content: '\E581';
+	content: '\e581';
 }
 .m-icon-arrowleft:before {
-	content: '\E582';
+	content: '\e582';
 }
 .m-icon-arrowright:before {
-	content: '\E583';
+	content: '\e583';
 }
 .m-icon-arrowthinup:before {
-	content: '\E584';
+	content: '\e584';
 }
 .m-icon-arrowthindown:before {
-	content: '\E585';
+	content: '\e585';
 }
 .m-icon-arrowthinleft:before {
-	content: '\E586';
+	content: '\e586';
 }
 .m-icon-arrowthinright:before {
-	content: '\E587';
+	content: '\e587';
 }
 .m-icon-pulldown:before {
-	content: '\E588';
+	content: '\e588';
 }
 .m-icon-scan:before {
-    content: "\E612";
+    content: "\e612";
 }
 

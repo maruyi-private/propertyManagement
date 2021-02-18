@@ -1,8 +1,8 @@
 {
+  "component": true,
   "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker",
     "cat-label": "/components/cat-label/cat-label",
-    "image-drag-sort": "/components/image-drag-sort/index",
-    "w-picker": "/components/w-picker/w-picker"
-  },
-  "component": true
+    "image-drag-sort": "/components/image-drag-sort/index"
+  }
 }

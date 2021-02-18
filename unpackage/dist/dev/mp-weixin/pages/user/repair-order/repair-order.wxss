@@ -1,25 +1,24 @@
 
-.uni-flex-center.data-v-5a5334ed {
+.uni-flex-center.data-v-c9f3bf38 {
 	background: #ffffff;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 999;
 }
-.uni-padding-wrap.data-v-5a5334ed {
+.uni-padding-wrap.data-v-c9f3bf38 {
 	width: 90%;
 	padding: 0;
 	/* margin: 10upx; */
 }
-.repair-order-content.data-v-5a5334ed{
+.repair-order-content.data-v-c9f3bf38{
 	margin-top: 100rpx;
 }
-.order-content.data-v-5a5334ed {
+.order-content.data-v-c9f3bf38 {
 	height: 180rpx;
 	display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
 	word-break: break-all;
-	-o-text-overflow: ellipsis;
-	   text-overflow: ellipsis;
+	text-overflow: ellipsis;
 	-webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
 	-webkit-line-clamp: 4; /** 显示的行数 **/
 	overflow: hidden;

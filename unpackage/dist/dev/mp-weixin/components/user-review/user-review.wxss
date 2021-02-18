@@ -2,7 +2,6 @@
 .cleanfloat {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	margin-right: 20rpx;
 }

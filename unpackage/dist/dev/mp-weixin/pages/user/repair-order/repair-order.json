@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "报事工单",
   "usingComponents": {
-    "uni-card": "/components/uni-card/uni-card",
-    "uni-segmented-control": "/components/uni-segmented-control/uni-segmented-control"
+    "uni-segmented-control": "/components/uni-segmented-control/uni-segmented-control",
+    "uni-card": "/components/uni-card/uni-card"
   }
 }

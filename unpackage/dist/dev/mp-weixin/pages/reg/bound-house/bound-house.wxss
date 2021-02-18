@@ -6,14 +6,13 @@
 .change-build {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   height: 40rpx;
   border-bottom: 0.8rpx solid #c9ccd3;
   padding: 11px 0px;
 }
 .change-build input {
-    line-height: 80rpx;
+  line-height: 80rpx;
 }
 .information {
   margin-top: 80rpx;

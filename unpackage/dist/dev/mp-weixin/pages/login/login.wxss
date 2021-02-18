@@ -14,8 +14,7 @@
 	border-radius: 8rpx;
 	text-align: center;
 	color: #ffffff;
-	background: -webkit-gradient(linear, left top, right top, from(#ff978d), to(#ffbb69));
-	background: -o-linear-gradient(left, #ff978d, #ffbb69);
+	background: -webkit-linear-gradient(left, #ff978d, #ffbb69);
 	background: linear-gradient(left, #ff978d, #ffbb69);
 }
 .verify-btn-active {
@@ -37,8 +36,7 @@
 	line-height: 84rpx;
 	border-radius: 44rpx;
 	font-size: 32rpx;
-	background: -webkit-gradient(linear, left top, right top, from(#ff978d), to(#ffbb69));
-	background: -o-linear-gradient(left, #ff978d, #ffbb69);
+	background: -webkit-linear-gradient(left, #ff978d, #ffbb69);
 	background: linear-gradient(left, #ff978d, #ffbb69);
 }
 .forget-btn {
@@ -64,8 +62,7 @@
 	background: #fff;
 	border-radius: 12rpx;
 	padding: 60rpx 25rpx;
-	-webkit-box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.12);
-	        box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.12);
+	box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.12);
 	position: relative;
 	margin-top: 60rpx;
 }
@@ -77,16 +74,13 @@
 .action-row {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: row;
-	    -ms-flex-direction: row;
 	        flex-direction: row;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
 	        justify-content: center;
 }
 .action-row navigator {
@@ -96,16 +90,13 @@
 .oauth-row {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: row;
-	    -ms-flex-direction: row;
 	        flex-direction: row;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
 	        justify-content: center;
 	position: absolute;
 	top: 0;

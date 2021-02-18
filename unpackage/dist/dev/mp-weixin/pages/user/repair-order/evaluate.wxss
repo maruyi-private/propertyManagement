@@ -9,7 +9,6 @@ page {
 .cleanfloat {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	margin-top: 40rpx;
 }

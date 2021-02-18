@@ -6,7 +6,6 @@
 	margin: 20rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	height: 80rpx;
 	border-bottom: 1rpx solid #bbbbbb;

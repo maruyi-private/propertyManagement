@@ -1,84 +1,75 @@
 
-.img.data-v-3f167dc6 {
+.img.data-v-24ffbcbd {
 	width: 100%;
 	height: 100%;
 }
-.image-drag-sort.data-v-3f167dc6 {
+.image-drag-sort.data-v-24ffbcbd {
 	width: 100%;
 	padding: 30rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
-.movable-area.data-v-3f167dc6 {
+.movable-area.data-v-24ffbcbd {
 	width: 100%;
 	height: auto;
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-flex-flow: wrap;
-	    -ms-flex-flow: wrap;
 	        flex-flow: wrap;
 }
-.item.data-v-3f167dc6 {
+.item.data-v-24ffbcbd {
 	-webkit-box-flex: 0;
 	-webkit-flex: 0 0 31%;
-	    -ms-flex: 0 0 31%;
 	        flex: 0 0 31%;
 	height: calc(31vw * .7);
 	overflow: hidden;
 	border-radius: 12rpx;
 }
-.item.data-v-3f167dc6:not(:nth-child(3n + 3)) {
+.item.data-v-24ffbcbd:not(:nth-child(3n + 3)) {
 	margin-right: 3.4%;
 }
-.item.data-v-3f167dc6:nth-child(n + 4) {
+.item.data-v-24ffbcbd:nth-child(n + 4) {
 	margin-top: 3.4%;
 }
-.img-upload-btn.data-v-3f167dc6 {
+.img-upload-btn.data-v-24ffbcbd {
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
-	    -ms-flex-direction: column;
 	        flex-direction: column;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
-	    -ms-flex-pack: center;
 	        justify-content: center;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
-	    -ms-flex-align: center;
 	        align-items: center;
 	background-color: #F5F5F5;
 }
-.img-upload-btn .icon.data-v-3f167dc6 {
+.img-upload-btn .icon.data-v-24ffbcbd {
 	width: 48rpx;
 	height: 48rpx;
 }
-.img-upload-btn .text.data-v-3f167dc6 {
+.img-upload-btn .text.data-v-24ffbcbd {
 	font-size: 28rpx;
 	color: #CCCCCC;
 	margin-top: 10rpx;
 }
-.movable-view.data-v-3f167dc6 {
+.movable-view.data-v-24ffbcbd {
 	width: 31%;
 	height: calc(31vw * .7);
 }
-.item-move.data-v-3f167dc6 {
+.item-move.data-v-24ffbcbd {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	border-radius: 12rpx;
 }
-.item-move-active.data-v-3f167dc6 {
-	-webkit-box-shadow: 0 0 30px #000;
-	        box-shadow: 0 0 30px #000;
+.item-move-active.data-v-24ffbcbd {
+	box-shadow: 0 0 30px #000;
 }
-.prompt.data-v-3f167dc6 {
+.prompt.data-v-24ffbcbd {
 	font-size: 28rpx;
 	line-height: 40rpx;
 	color: #999;
