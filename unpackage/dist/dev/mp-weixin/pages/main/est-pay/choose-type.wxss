@@ -1,7 +1,8 @@
 
 .content-card{
 	background: #FFFFFF;
-	border-radius: 6rpx;
+	-webkit-border-radius: 6rpx;
+	        border-radius: 6rpx;
 	padding: 20rpx;
 }
 .uni-font-36{

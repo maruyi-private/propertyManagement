@@ -5,7 +5,7 @@
 			<view class="profily">
 				<view class="base" v-if="hasBoundHouse === true && hasLogin === true">
 					<view class="profily_header" v-if="!userInfo" :style="'background-image: url(' + defaultImg+')'"></view>
-					<view class="profily_header" v-if="userInfo" :style="'background-image: url(' + userInfo.avatarUrl + ')'"></view>
+					<view class="profily_header" v-if="userInfo" :style="'background-image: url(' + userInfo.avatar + ')'"></view>
 					<view>
 						<view>
 							<text>{{ myHouse.ownerInfo.realname }}</text>
@@ -58,6 +58,8 @@ export default {
 	data() {
 		return {
 			defaultImg:'/static/img/header-img.png',
+			hasBoundHouse: false,
+			hasLogin: false,
 			status: [
 				{
 					name: '我的订单',
@@ -112,6 +114,12 @@ export default {
 	},
 	onShow() {
 		// this.getData();
+		this.setHasBoundHouseStatus();
+		this.setHasLoginStatus();
+	},
+	onLoad(){
+		this.setHasBoundHouseStatus();
+		this.setHasLoginStatus();
 	},
 	methods: {
 		getData() {
@@ -125,7 +133,16 @@ export default {
 					if (res.confirm) {
 						setTimeout(() => {
 							this.$store.commit('logout');
-							// this.$Router.replaceAll({name:'login'})
+							uni.switchTab({
+							    url: '/pages/user/center/center',
+								success: function (e) {
+								    var page = getCurrentPages()[0]
+								    if (page == undefined || page == null) return;
+									page.onLoad({
+										...page.options
+									});
+								}
+							});
 						}, 100);
 					}
 				}
@@ -140,27 +157,33 @@ export default {
 				return;
 			}
 			this.$Router.push({ name: url });
+		},
+		setHasBoundHouseStatus(){
+			console.log('hasBoundHouse1', this.$store.state.hasBoundHouse);
+			this.hasBoundHouse = this.$store.state.hasBoundHouse;
+		},
+		setHasLoginStatus(){
+			console.log('hasLogin1', this.$store.state.hasLogin);
+			this.hasLogin = this.$store.state.hasLogin;
 		}
 	},
 	computed: {
+		// userInfo() {
+		// 	let userInfo = {};
+		// 	try {
+		// 		userInfo = uni.getStorageSync('userInfo');
+		// 		console.log('userinfo', userInfo);
+		// 		return userInfo;
+		// 	} catch (e) {
+		// 		// error
+		// 	}
+		// 	return userInfo;
+		// },
 		userInfo() {
-			let userInfo = {};
-			try {
-				userInfo = uni.getStorageSync('userInfo');
-				return userInfo;
-			} catch (e) {
-				// error
-			}
-			return userInfo;
+			return this.$store.state.userInfo;
 		},
 		myHouse() {
 			return this.$store.state.myHouse;
-		},
-		hasBoundHouse(){
-			return this.$store.state.hasBoundHouse;
-		},
-		hasLogin(){
-			return this.$store.state.hasLogin;
 		}
 	}
 };

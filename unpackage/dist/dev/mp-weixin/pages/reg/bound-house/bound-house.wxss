@@ -27,6 +27,7 @@
   text-align: center;
   position: fixed;
   bottom: 0rpx;
-  border-radius: 0rpx;
+  -webkit-border-radius: 0rpx;
+          border-radius: 0rpx;
 }
 

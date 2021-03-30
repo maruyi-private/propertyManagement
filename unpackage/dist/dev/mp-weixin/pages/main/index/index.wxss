@@ -27,7 +27,8 @@
 }
 .main-score {
 	background: #d8d8d8;
-	border-radius: 20rpx;
+	-webkit-border-radius: 20rpx;
+	        border-radius: 20rpx;
 	font-size: 18rpx;
 	padding-left: 20rpx;
 	padding-right: 20rpx;
@@ -60,7 +61,8 @@
 }
 .main-fct-btn {
 	height: 160rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -97,7 +99,8 @@
 }
 .main-service {
 	margin-top: 20rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 	background: #ffffff;
 }
 .main-service .title {
@@ -126,7 +129,8 @@
 	background: #fcf5e5;
 	color: #db9444;
 	padding: 10rpx 20rpx 10rpx;
-	border-radius: 30rpx;
+	-webkit-border-radius: 30rpx;
+	        border-radius: 30rpx;
 }
 .mark {
 	font-size: 24rpx;
@@ -134,7 +138,8 @@
 }
 .main-topic {
 	margin-top: 40rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 	background: #ffffff;
 }
 .update-card{
@@ -145,12 +150,14 @@
 .housekeeper{
 	height: 180rpx;
 	background: #FFFFFF;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 }
 .housekeeper-header{
 	height: 120rpx;
 	width: 120rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 }
 .housekeeper-btn{
 	height: 70rpx;
@@ -158,7 +165,8 @@
 	line-height: 70rpx;
 	background: #FFFFFF;
 	border: 2rpx solid #ffc392;
-	border-radius: 50rpx;
+	-webkit-border-radius: 50rpx;
+	        border-radius: 50rpx;
 	color: #ff972a;
 	font-size: 24rpx;
 	text-align: center;

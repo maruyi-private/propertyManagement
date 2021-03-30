@@ -6,7 +6,8 @@
 	height: 40rpx;
 	padding: 5rpx;
 	border: 1rpx solid #ed7130;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	font-weight: 700;
 	color: #ed7130;
 }
@@ -18,7 +19,8 @@
 	width: 140rpx;
 	text-align: center;
 	line-height: 140rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	color: #FFFFFF;
 	background: #ED7A30;
 }

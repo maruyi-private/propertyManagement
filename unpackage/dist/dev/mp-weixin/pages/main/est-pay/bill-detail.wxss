@@ -8,7 +8,8 @@
 	background: #FFFFFF;
 	padding: 20rpx;
 	margin: 20rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 }
 .rule{
 	border-top: 1rpx dashed #DDDDDD;

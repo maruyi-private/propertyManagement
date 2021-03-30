@@ -1,6 +1,6 @@
 {
     "name" : "阳光慧管家",
-    "appid" : "__UNI__39EE0C2",
+    "appid" : "__UNI__B8E42DC",
     "description" : "智慧美好生活从这里开启",
     "versionName" : "1.0.8",
     "versionCode" : 108,
@@ -130,7 +130,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx259fd38059e65344",
         "setting" : {
             "urlCheck" : false
         },

@@ -5,7 +5,8 @@
 .colorOrange {
 	color: #ffffff;
 	height: 80rpx;
-	border-radius: 50rpx;
+	-webkit-border-radius: 50rpx;
+	        border-radius: 50rpx;
 	line-height: 80rpx;
 	margin: 40rpx;
 	padding: 0rpx 60rpx;
@@ -19,7 +20,8 @@
 	background: #ffffff;
 	padding: 20rpx;
 	margin: 20rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 }
 .rule {
 	border-bottom: 1rpx dashed #dddddd;

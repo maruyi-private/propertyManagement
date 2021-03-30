@@ -20,8 +20,11 @@
 		</view>
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="forget-btn">
-			<button style=" border-radius: 44upx;height: 84upx;line-height: 84upx; " type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+			<!-- <button style=" border-radius: 44upx;height: 84upx;line-height: 84upx; " type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
 				<i style="height: 80upx;line-height: 80upx;" class="iconfont iconweixin">微信用户快速登陆</i>
+			</button> -->
+			<button style=" border-radius: 44upx;height: 84upx;line-height: 84upx; " type="primary" open-type="getUserInfo" @getuserinfo="mpWxGetUserInfo">
+				<i style="height: 80upx;line-height: 80upx;" class="iconfont iconweixin">微信登陆</i>
 			</button>
 		</view>
 		<!-- #endif -->
@@ -30,11 +33,13 @@
 
 <script>
 import mInput from '@/components/m-input.vue';
+import loginMpWx from '@/common/oyyl-mixin/login-mp-wx.js'
 
 export default {
 	components: {
 		mInput
 	},
+	mixins: [loginMpWx],
 	data() {
 		return {
 			providerList: [],

@@ -8,26 +8,31 @@ page {
 }
 .housekeeper {
 	height: 160rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 }
 .housekeeper-header {
 	height: 120rpx;
 	width: 120rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 }
 .housekeeper-btn {
 	height: 70rpx;
 	width: 160rpx;
 	line-height: 70rpx;
 	border: 2rpx solid #ffc392;
-	border-radius: 50rpx;
+	-webkit-border-radius: 50rpx;
+	        border-radius: 50rpx;
 	color: #ff972a;
 	font-size: 24rpx;
 	text-align: center;
 }
 ._box {
-	border-radius: 10rpx;
-	box-shadow: 3rpx 3rpx 8rpx #bebebe;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
+	-webkit-box-shadow: 3rpx 3rpx 8rpx #bebebe;
+	        box-shadow: 3rpx 3rpx 8rpx #bebebe;
 	padding: 10rpx;
 }
 ._box-title {
@@ -61,7 +66,8 @@ page {
 	-webkit-justify-content: center;
 	        justify-content: center;
 	border-color: #eee;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 .uni-grid-9-item-text {
 	text-align: center;
@@ -86,7 +92,8 @@ page {
 .user-eval-header {
 	height: 80rpx;
 	width: 80rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 }
 .housekeeper-foot {
 	background: #FFFFFF;
@@ -98,7 +105,8 @@ page {
 .btn-sub {
 	background: -webkit-linear-gradient(left, #ffb200, #fe8502);
 	bottom: 10rpx;
-	border-radius: 50rpx;
+	-webkit-border-radius: 50rpx;
+	        border-radius: 50rpx;
 	width: 90%;
 	height: 70rpx;
 	line-height: 70rpx;
@@ -116,12 +124,14 @@ page {
 	height: 500rpx;
 	background: #FFFFFF;
 	z-index: 999;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 }
 .mark-close{
 	text-align: center;
 	font-size: 34rpx;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	border: 1rpx solid #FFFFFF;
 	width: 60rpx;
 	color: #FFFFFF;

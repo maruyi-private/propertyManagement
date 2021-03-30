@@ -12,11 +12,12 @@ const store = new Vuex.Store({
 		appkey: '',
 		login_token: '12123', //登录token
 
-		hasLogin: true, //是否已经登陆
-		hasBoundHouse: true, //是否绑定房产
+		hasLogin: false, //是否已经登陆
+		hasBoundHouse: false, //是否绑定房产
 		myHouse: '', //个人中心数据
 		hasAuthorized: false, //是否微信授权
 		wxUserInfo: '', //微信登录信息
+		userInfo: {}, // 登录组件导入
 
 		city: {}, //绑定城市
 		village: {}, //绑定楼盘
@@ -38,7 +39,23 @@ const store = new Vuex.Store({
 
 		pushMessage:'', //推送数据
 	},
+	// 登录组件导入
+	getters: {
+		userId(state) {
+			return state.userInfo.id || null;
+		}
+	},
 	mutations: {
+		// 登录组件导入 更新state数据
+		setStateAttr(state, param) {
+			if (param instanceof Array) {
+				for (let item of param) {
+					state[item.key] = item.val;
+				}
+			} else {
+				state[param.key] = param.val;
+			}
+		},
 		updatePushMessage(state, message) {
 			/**
 			 * 注意：这里为了方便预览查看效果，始终对 payload 做了序列化的处理。
@@ -101,20 +118,30 @@ const store = new Vuex.Store({
 		},
 		logout(state) { //退出登陆
 			state.hasLogin = false;
+			state.hasBoundHouse = false;
 			state.myHouse = '';
 			state.login_token = null;
 			try {
-				uni.removeStorageSync('hasLogin');
-				uni.removeStorageSync('wxUserInfo');
-				uni.removeStorageSync('loginToken');
+				// uni.removeStorageSync('hasLogin');
+				// uni.removeStorageSync('wxUserInfo');
+				// uni.removeStorageSync('loginToken');
+				// uni.removeStorageSync('userInfo'); // 登录模块导入 退出登录
+				uni.clearStorageSync();
 			} catch (e) {
 				// error
 			}
 		},
+		// 登录模块导入 退出登录
+		// logout({state,commit}) {
+		// 	commit('setStateAttr', {
+		// 		key: 'userInfo',
+		// 		val: {}
+		// 	})
+		// 	uni.removeStorageSync('userInfo');
+		// },
 		setChangeCar(state, data) {
 			state.changeCar = data
 		},
-
 		setCity(state, data) { //城市
 			state.city = data
 			state.village = ''
@@ -179,6 +206,16 @@ const store = new Vuex.Store({
 		},
 		setMyRoom(context) {
 			context.commit('setMyRoom')
+		},
+		// 登录模块导入 
+		async setUserData({state,commit}, data) {
+			commit('setStateAttr', {
+				key: 'userInfo',
+				val: data
+			})
+			uni.setStorageSync('userInfo', data);
+			commit('bindHouse');
+			commit('setHasLogin');
 		}
 	}
 })

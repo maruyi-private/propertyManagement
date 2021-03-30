@@ -2,7 +2,8 @@
 .pay {
 }
 .minus {
-	border-radius: 5rpx;
+	-webkit-border-radius: 5rpx;
+	        border-radius: 5rpx;
 	color: #ffffff;
 	height: 50rpx;
 	width: 50rpx;
@@ -28,7 +29,8 @@
 	background: #ffead7;
 	border: 1rpx solid #ff913b;
 	color: #ff913b;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 	padding: 5rpx 20rpx 5rpx;
 }
 .yearMonth {
@@ -50,7 +52,8 @@
 }
 .foot-pays .to-pay {
 	color: #ffffff;
-	border-radius: 50rpx;
+	-webkit-border-radius: 50rpx;
+	        border-radius: 50rpx;
 	width: 200rpx;
 	line-height: 80rpx;
 	height: 80rpx;

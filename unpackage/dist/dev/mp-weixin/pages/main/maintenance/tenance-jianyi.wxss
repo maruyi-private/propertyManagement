@@ -79,8 +79,10 @@ view.data-v-51862934 {
 .text.data-v-51862934 {
 	line-height: 100rpx;
 	text-align: center;
-	border-top-right-radius: 20rpx;
-	border-top-left-radius: 20rpx;
+	-webkit-border-top-right-radius: 20rpx;
+	        border-top-right-radius: 20rpx;
+	-webkit-border-top-left-radius: 20rpx;
+	        border-top-left-radius: 20rpx;
 	color: #c8ccd8;
 }
 .active.data-v-51862934 {
@@ -92,7 +94,8 @@ view.data-v-51862934 {
 	padding: 5rpx 35rpx 5rpx 35rpx;
 	background: #ffffff;
 	line-height: 60rpx;
-	border-radius: 50rpx;
+	-webkit-border-radius: 50rpx;
+	        border-radius: 50rpx;
 	text-align: center;
 	margin: 10rpx 20rpx 10rpx;
 }
@@ -116,7 +119,8 @@ view.data-v-51862934 {
 }
 .maintenance-content.data-v-51862934 {
 	margin: 10rpx;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 	background: #ffffff;
 }
 .tenance-foot.data-v-51862934{
@@ -129,7 +133,8 @@ view.data-v-51862934 {
 	width: 90%;
 	height: 80rpx;
 	line-height: 80rpx;
-	border-radius: 40rpx;
+	-webkit-border-radius: 40rpx;
+	        border-radius: 40rpx;
 	margin-bottom: 40rpx;
 	margin-top: 40rpx;
 	color: #ffffff;

@@ -1,7 +1,8 @@
 
 @charset "UTF-8";
 .uni-grid-item {
-	box-sizing: border-box
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box
 }
 .uni-grid-item__box {
 	position: relative;
@@ -26,7 +27,8 @@
 	font-size: 32rpx;
 	color: #666;
 	padding: 20rpx 0;
-	box-sizing: border-box
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box
 }
 .uni-grid-item__box-item .image {
 	width: 50rpx;
@@ -46,7 +48,8 @@
 }
 .uni-grid-item__box.border {
 	position: relative;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 .uni-grid-item__box.border-top {
 }
@@ -68,7 +71,8 @@
 	width: 20rpx;
 	height: 20rpx;
 	background: #ff5a5f;
-	border-radius: 50%
+	-webkit-border-radius: 50%;
+	        border-radius: 50%
 }
 .uni-grid-item__box-badge {
 	display: -webkit-box;

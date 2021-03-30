@@ -5,7 +5,8 @@
   font-variant: tabular-nums;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.65);
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -44,7 +45,8 @@
   display: inline-block;
   width: 100%;
   background-color: #f5f5f5;
-  border-radius: 200rpx;
+  -webkit-border-radius: 200rpx;
+          border-radius: 200rpx;
   vertical-align: middle;
   position: relative;
 }
@@ -98,7 +100,8 @@
   right: 0;
   bottom: 0;
   background: #fff;
-  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
   -webkit-animation: cmd-progress-active 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
   animation: cmd-progress-active 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
 }

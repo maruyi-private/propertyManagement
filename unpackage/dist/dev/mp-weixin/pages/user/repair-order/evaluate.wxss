@@ -15,7 +15,8 @@ page {
 .text-input-area {
 	width: 90%;
 	border: 1rpx solid #eeeeee;
-	border-radius: 10rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
 	padding: 10rpx;
 	line-height: 40rpx;
 }

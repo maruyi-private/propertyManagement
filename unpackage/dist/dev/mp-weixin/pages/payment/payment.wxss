@@ -16,7 +16,8 @@
 .pay-icon {
 	height: 80rpx;
 	width: 80rpx;
-	border-radius: 20rpx;
+	-webkit-border-radius: 20rpx;
+	        border-radius: 20rpx;
 }
 .rmbLogo {
 	font-size: 40rpx;
@@ -27,7 +28,8 @@
 button {
 	background-color: #ff913b;
 	color: #ffffff;
-	border-radius: 50rpx;
+	-webkit-border-radius: 50rpx;
+	        border-radius: 50rpx;
 }
 .uni-h1.uni-center {
 	display: -webkit-box;

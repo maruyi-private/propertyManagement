@@ -13,15 +13,18 @@
 	        justify-content: center;
 	width: 100%;
 	font-size: 28rpx;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	margin: 0 auto;
 	overflow: hidden;
 	border: 1px solid;
-	border-radius: 10rpx
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx
 }
 .segmented-control.text {
 	border: 0;
-	border-radius: 0
+	-webkit-border-radius: 0;
+	        border-radius: 0
 }
 .segmented-control-item {
 	-webkit-box-flex: 1;
@@ -29,7 +32,8 @@
 	        flex: 1;
 	text-align: center;
 	line-height: 80rpx;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	border-left: 1px solid
 }
 .segmented-control-item.active {

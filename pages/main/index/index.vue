@@ -227,16 +227,16 @@ export default {
 			this.$Router.push({ name: 'housekeeper', params: { id: this.housekeeper.uid } });
 		},
 		getData() {
-			let datax = {
-					ownerInfo: {
-						roomid: '21231',
-						villagename: '阳光榭',
-						villageaddr:'眉山',
-						realname:'杨梅',
-						roomnum:'12-11-23'
-					}
-			};
-			this.$store.commit('setMyHouse', datax);
+			// let datax = {
+			// 		ownerInfo: {
+			// 			roomid: '21231',
+			// 			villagename: '阳光榭',
+			// 			villageaddr:'眉山',
+			// 			realname:'杨梅',
+			// 			roomnum:'12-11-23'
+			// 		}
+			// };
+			// this.$store.commit('setMyHouse', datax);
 		},
 		/*
 		 * 检测版本升级
