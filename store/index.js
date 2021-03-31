@@ -10,7 +10,7 @@ const store = new Vuex.Store({
 		invoiceBaseUrl: '', //
 		baseImgUrl: '', //七牛云图片查看
 		appkey: '',
-		login_token: '12123', //登录token
+		login_token: '', //登录token
 
 		hasLogin: false, //是否已经登陆
 		hasBoundHouse: false, //是否绑定房产
@@ -24,6 +24,12 @@ const store = new Vuex.Store({
 		tower: {}, //绑定楼栋
 		unit: {}, //绑定单元
 		room: {}, //绑定房号
+		
+		citys: [], // 已开通服务的所有城市
+		project: [], // 当前城市下所有开通服务的楼盘
+		towers: [], // 当前楼盘下所有的楼栋
+		units: [], // 当前楼栋下的所有单元
+		rooms: [], // 当前单元的所有房间
 
 		myRoom: {}, //当前房产和全部车位信息
 		changeCar: '', //选择车位
@@ -149,43 +155,68 @@ const store = new Vuex.Store({
 			state.unit = ''
 			state.room = ''
 		},
+		setCitys(state, data) { // 开通服务的所有城市
+			state.citys = data
+		},
 		setVillage(state, data) { //楼盘
 			state.village = data
 			state.tower = ''
 			state.unit = ''
 			state.room = ''
 		},
+		setProject(state, data) { // 开通服务城市的所有楼盘
+			state.project = data
+		},
 		setTower(state, data) { //楼栋
 			state.tower = data
 			state.unit = ''
 			state.room = ''
 		},
+		setTowers(state, data) { // 当前楼盘下所有的楼栋
+			state.towers = data
+		},
 		setUnit(state, data) { //单元
 			state.unit = data
 			state.room = ''
 		},
+		setUnits(state, data) { // 当前楼栋下所有的单元
+			state.units = data
+		},
 		setRoom(state, data) { //房号
 			state.room = data
 		},
-
+		setRooms(state, data) { // 当前单元所有的房号
+			state.rooms = data
+		},
 		setCarData(state, data) {
 			state.carData = data;
 		},
 		setRoomData(state, data) {
 			state.roomData = data;
 		},
-		setMyHouse(state, data) {
-			console.log("data: " + JSON.stringify(data));
-			state.hasLogin = true;
-			if (data.ownerInfo.roomid) {
+		async setMyHouse(state, data) {
+			// state.hasLogin = true;
+			if (data) {
 				state.hasBoundHouse = true;
-				state.myHouse = data;
+				uniCloud.callFunction({
+					name: 'getMyHouse',
+					data: { id: data }
+				}).then((res) => {
+					console.log(res);
+					state.myHouse = res.result.data;
+				});
 			} else {
 				state.hasBoundHouse = false;
 			}
 		},
 		setOrderData(state, data) {
 			state.orderData = data;
+		},
+		setUserInfo(state, data) {
+			state.userInfo = data;
+		},
+		setLoginToken(state, data) {
+			state.login_token = data.id;
 		}
 	},
 	actions: {
@@ -213,9 +244,15 @@ const store = new Vuex.Store({
 				key: 'userInfo',
 				val: data
 			})
+			console.log('setUserData', data);
 			uni.setStorageSync('userInfo', data);
-			commit('bindHouse');
+			// commit('bindHouse');
 			commit('setHasLogin');
+			commit('setUserInfo', data);
+			commit('setLoginToken', data);
+		},
+		async setMyHouse({state,commit}, data) {
+			commit('setMyHouse', data);
 		}
 	}
 })

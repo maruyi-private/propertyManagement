@@ -25,14 +25,29 @@
 		},
 		methods: {
 			getCity(){
-				const data ={
-					type:5,
-					id:'',
-					login_token:this.$store.state.login_token
+				// const data ={
+				// 	type:5,
+				// 	id:'',
+				// 	login_token:this.$store.state.login_token
+				// }
+				this.list = this.$store.state.citys;
+				console.log('list', this.list);
+				if(this.list.length === 0) {
+					uniCloud.callFunction({
+						name: 'getCitys'
+					}).then((res) => {
+						const citys = res.result.data;
+						this.$store.commit('setCitys', citys);
+						this.list = citys;
+					})
 				}
 			},
 			addCity(item){
 				this.$store.commit('setCity',item);
+				this.$store.commit('setVillage', {});
+				this.$store.commit('setTower', {});
+				this.$store.commit('setUnit', {});
+				this.$store.commit('setRoom', {});
 				uni.navigateBack({
 					delta:1
 				})

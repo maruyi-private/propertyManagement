@@ -312,6 +312,7 @@ var _default =
     // 	return userInfo;
     // },
     userInfo: function userInfo() {
+      console.log('userInfo1', this.$store.state.userInfo);
       return this.$store.state.userInfo;
     },
     myHouse: function myHouse() {

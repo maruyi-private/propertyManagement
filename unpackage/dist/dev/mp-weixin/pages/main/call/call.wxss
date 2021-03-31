@@ -2,4 +2,8 @@
 .uni-media-list-body{
 	height: 45rpx;
 }
+.map {
+	width: 750rpx;
+	height: 750rpx;
+}
 

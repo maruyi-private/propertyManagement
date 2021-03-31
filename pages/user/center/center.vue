@@ -20,7 +20,7 @@
 					<image @click="logout" src="/static/fumou-center-template/setting.png" mode=""></image>
 				</view>
 				<view class="base" v-if="hasBoundHouse === false && hasLogin === true">
-					<view class="profily_header" :style="'background-image: url('+ defaultImg +')'"></view>
+					<view class="profily_header" v-if="userInfo" :style="'background-image: url(' + userInfo.avatar + ')'"></view>
 					<view>
 						<view @click="getNav('bound-house')"><text>请绑定房产</text></view>
 					</view>
@@ -48,7 +48,7 @@
 			</view>
 		</view>
 		<view class="uni-empty">
-			阳光大地置业集团  版权所有
+			mry  版权所有
 		</view>
 	</view>
 </template>
@@ -180,6 +180,7 @@ export default {
 		// 	return userInfo;
 		// },
 		userInfo() {
+			console.log('userInfo1', this.$store.state.userInfo);
 			return this.$store.state.userInfo;
 		},
 		myHouse() {

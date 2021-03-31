@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var catLabel = function catLabel() {__webpack_require__.e(/*! require.ensure | components/cat-label/cat-label */ "components/cat-label/cat-label").then((function () {return resolve(__webpack_require__(/*! @/components/cat-label/cat-label.vue */ 513));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var catLabel = function catLabel() {__webpack_require__.e(/*! require.ensure | components/cat-label/cat-label */ "components/cat-label/cat-label").then((function () {return resolve(__webpack_require__(/*! @/components/cat-label/cat-label.vue */ 513));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -185,6 +185,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       disabled: true,
       idcard: '',
+      realname: '',
       selectTowerList: [],
       disabledBtn: true };
 
@@ -203,7 +204,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.state.unit;
     },
     room: function room() {
-      if (this.$store.state.room.id) {
+      if (this.$store.state.room.roomnum) {
         this.disabledBtn = false;
       }
       return this.$store.state.room;
@@ -211,86 +212,96 @@ __webpack_require__.r(__webpack_exports__);
 
   onShow: function onShow() {},
   methods: {
-    changeHouse: function changeHouse() {
-      if (!this.$store.state.city.id && this.$store.state.city.id !== 0) {
-        uni.showToast({
-          icon: 'none',
-          title: '请先选择城市' });
-
-        return;
-      }
-      this.$Router.push({ name: 'add-project', params: { data: this.$store.state.city.id } });
-    },
     changeCity: function changeCity() {
       this.$Router.push({ name: 'add-city' });
     },
-    changeTower: function changeTower() {
-      if (!this.$store.state.city.id) {
+    changeHouse: function changeHouse() {
+      if (!this.$store.state.city.villageid) {
         uni.showToast({
           icon: 'none',
           title: '请先选择城市' });
 
         return;
       }
-      if (!this.$store.state.village.id) {
+      this.$Router.push({ name: 'add-project', params: { data: this.$store.state.city.villageid } });
+    },
+    changeTower: function changeTower() {
+      if (!this.$store.state.city.villageid) {
+        uni.showToast({
+          icon: 'none',
+          title: '请先选择城市' });
+
+        return;
+      }
+      if (!this.$store.state.village.projectid) {
         uni.showToast({
           icon: 'none',
           title: '请先选择楼盘' });
 
         return;
       }
-      this.$Router.push({ name: 'add-tower', params: { data: this.$store.state.village.id } });
+      this.$Router.push({ name: 'add-tower', params: { data: this.$store.state.village.projectid } });
     },
     changeUnit: function changeUnit() {
-      if (!this.$store.state.village.id) {
+      if (!this.$store.state.village.projectid) {
         uni.showToast({
           icon: 'none',
           title: '请先选择楼盘' });
 
         return;
       }
-      if (!this.$store.state.tower.id) {
+      if (!this.$store.state.tower.towerid) {
         uni.showToast({
           icon: 'none',
           title: '请先选择楼栋' });
 
         return;
       }
-      this.$Router.push({ name: 'add-unit', params: { data: this.$store.state.tower.id } });
+      this.$Router.push({ name: 'add-unit', params: { data: this.$store.state.tower.towerid } });
     },
     changeRoom: function changeRoom() {
-      if (!this.$store.state.village.id) {
+      if (!this.$store.state.village.projectid) {
         uni.showToast({
           icon: 'none',
           title: '请先选择楼盘' });
 
         return;
       }
-      if (!this.$store.state.tower.id) {
+      if (!this.$store.state.tower.towerid) {
         uni.showToast({
           icon: 'none',
           title: '请先选择楼栋' });
 
         return;
       }
-      if (!this.$store.state.unit.id) {
+      if (!this.$store.state.unit.unitid) {
         uni.showToast({
           icon: 'none',
           title: '请先选择单元' });
 
         return;
       }
-      this.$Router.push({ name: 'add-room', params: { data: this.$store.state.unit.id } });
+      this.$Router.push({ name: 'add-room', params: { data: this.$store.state.unit.unitid } });
     },
-    submit: function submit() {
+    submit: function submit() {var _this = this;
       var data = {
-        login_token: this.$store.state.login_token, //登录令牌
-        idcard: this.idcard, //		身份证号
-        vid: this.village.id, //		项目id
-        bid: this.tower.id, //		楼栋id
-        unit: this.unit.id, //		单元id
-        roomid: this.room.id //房间号
-      };
+        ownerInfo: {
+          login_token: this.$store.state.login_token, //登录令牌
+          idcard: this.idcard, //	身份证号
+          realname: this.realname, //  姓名
+          projectid: this.village.projectid, //	项目id
+          towerid: this.tower.towerid, //	楼栋id
+          unitid: this.unit.unitid, //	单元id
+          roomnum: this.room.roomnum //	房间号
+        } };
+
+      if (!this.realname) {
+        uni.showToast({
+          icon: 'none',
+          title: '请输入姓名' });
+
+        return;
+      }
       if (!this.idcard) {
         uni.showToast({
           icon: 'none',
@@ -305,8 +316,21 @@ __webpack_require__.r(__webpack_exports__);
 
         return;
       }
+      uniCloud.callFunction({
+        name: 'saveBoundHouse',
+        data: { house: data } }).
+      then(function (res) {
+        uni.showToast({
+          icon: 'none',
+          title: '绑定成功！' });
+
+        _this.$store.commit('setMyHouse', res.result.id);
+        uni.navigateBack({
+          delta: 1 });
+
+      });
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 111)["default"]))
 
 /***/ }),
 

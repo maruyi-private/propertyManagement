@@ -26,10 +26,24 @@
 		},
 		methods: {
 			getRoom(){
-				const data ={
-					type:4,
-					id:this.id,
-					login_token:this.$store.state.login_token
+				// const data ={
+				// 	type:4,
+				// 	id:this.id,
+				// 	login_token:this.$store.state.login_token
+				// }
+				this.list = this.$store.state.rooms;
+				console.log(this.id);
+				console.log(this.list);
+				if(this.list.length === 0) {
+					uniCloud.callFunction({
+						name: 'getRooms',
+						data: { unitid: this.id }
+					}).then((res) => {
+						const projects = res.result.data;
+						console.log(projects);
+						this.$store.commit('setRooms', projects);
+						this.list = projects;
+					})
 				}
 			},
 			addRoom(item){

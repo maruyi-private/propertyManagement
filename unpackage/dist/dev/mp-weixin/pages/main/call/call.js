@@ -154,11 +154,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
     return {
-      number: '02838231519' };
+      number: '0556-5300117',
+      longitude: 116.993399,
+      latitude: 30.609361,
+      scale: 14,
+      markers: [
+      {
+        longitude: 116.993399,
+        latitude: 30.609361,
+        iconPath: "/static/adressLogo.jpg",
+        width: 30,
+        height: 30 }] };
+
+
 
   },
   methods: {

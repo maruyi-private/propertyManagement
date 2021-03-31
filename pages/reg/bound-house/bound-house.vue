@@ -11,7 +11,7 @@
 			<view class="uni-flex-center">
 				<view class="change-build uni-cell-90">
 					<text class="uni-cell-30">请选择楼盘</text>
-					<input class="uni-cell-70" @tap="changeHouse" disabled="true" v-model="village.villagename" placeholder="请选择楼盘" />
+					<input class="uni-cell-70" @tap="changeHouse" disabled="true" v-model="village.projectname" placeholder="请选择楼盘" />
 				</view>
 			</view>
 			<view class="uni-flex-center">
@@ -34,7 +34,7 @@
 			</view>
 
 			<view class="information">
-				<catLabel dataType="text" text="姓名" placeholder="请输入姓名" />
+				<catLabel dataType="text" text="姓名" v-model="realname" placeholder="请输入姓名" />
 				<catLabel dataType="text" text="证件号" v-model="idcard" :maxlength="18"  placeholder="请输入证件号" />
 			</view>
 		</view>
@@ -53,6 +53,7 @@ export default {
 		return {
 			disabled: true,
 			idcard: '',
+			realname: '',
 			selectTowerList: [],
 			disabledBtn: true
 		};
@@ -71,7 +72,7 @@ export default {
 			return this.$store.state.unit;
 		},
 		room() {
-			if (this.$store.state.room.id) {
+			if (this.$store.state.room.roomnum) {
 				this.disabledBtn = false;
 			}
 			return this.$store.state.room;
@@ -79,86 +80,96 @@ export default {
 	},
 	onShow() {},
 	methods: {
+		changeCity() {
+			this.$Router.push({name:'add-city'});
+		},
 		changeHouse() {
-			if (!this.$store.state.city.id && this.$store.state.city.id !== 0) {
+			if (!this.$store.state.city.villageid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择城市'
 				});
 				return;
 			}
-			this.$Router.push({name:'add-project',params:{data:this.$store.state.city.id}})
-		},
-		changeCity() {
-			this.$Router.push({name:'add-city'})
+			this.$Router.push({name:'add-project',params:{data:this.$store.state.city.villageid}})
 		},
 		changeTower() {
-			if (!this.$store.state.city.id) {
+			if (!this.$store.state.city.villageid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择城市'
 				});
 				return;
 			}
-			if (!this.$store.state.village.id) {
+			if (!this.$store.state.village.projectid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择楼盘'
 				});
 				return;
 			}
-			this.$Router.push({name:'add-tower',params:{data:this.$store.state.village.id}})
+			this.$Router.push({name:'add-tower',params:{data:this.$store.state.village.projectid}})
 		},
 		changeUnit() {
-			if (!this.$store.state.village.id) {
+			if (!this.$store.state.village.projectid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择楼盘'
 				});
 				return;
 			}
-			if (!this.$store.state.tower.id) {
+			if (!this.$store.state.tower.towerid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择楼栋'
 				});
 				return;
 			}
-			this.$Router.push({name:'add-unit',params:{data:this.$store.state.tower.id}})
+			this.$Router.push({name:'add-unit',params:{data:this.$store.state.tower.towerid}})
 		},
 		changeRoom() {
-			if (!this.$store.state.village.id) {
+			if (!this.$store.state.village.projectid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择楼盘'
 				});
 				return;
 			}
-			if (!this.$store.state.tower.id) {
+			if (!this.$store.state.tower.towerid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择楼栋'
 				});
 				return;
 			}
-			if (!this.$store.state.unit.id) {
+			if (!this.$store.state.unit.unitid) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择单元'
 				});
 				return;
 			}
-			this.$Router.push({name:'add-room',params:{data:this.$store.state.unit.id}})
+			this.$Router.push({name:'add-room',params:{data:this.$store.state.unit.unitid}})
 		},
 		submit() {
 			let data = {
-				login_token: this.$store.state.login_token, //登录令牌
-				idcard: this.idcard, //		身份证号
-				vid: this.village.id, //		项目id
-				bid: this.tower.id, //		楼栋id
-				unit: this.unit.id, //		单元id
-				roomid: this.room.id //房间号
+				ownerInfo: {
+					login_token: this.$store.state.login_token, //登录令牌
+					idcard: this.idcard,  //	身份证号
+					realname: this.realname,//  姓名
+					projectid: this.village.projectid, //	项目id
+					towerid: this.tower.towerid,   //	楼栋id
+					unitid: this.unit.unitid,   //	单元id
+					roomnum: this.room.roomnum  //	房间号
+				}
 			};
+			if(!this.realname) {
+				uni.showToast({
+					icon:'none',
+					title:'请输入姓名'
+				})
+				return;
+			}
 			if(!this.idcard){
 				uni.showToast({
 					icon:'none',
@@ -173,6 +184,19 @@ export default {
 				})
 				return;
 			}
+			uniCloud.callFunction({
+				name: 'saveBoundHouse',
+				data: { house: data }
+			}).then(res => {
+				uni.showToast({
+					icon:'none',
+					title:'绑定成功！'
+				});
+				this.$store.commit('setMyHouse', res.result.id)
+				uni.navigateBack({
+					delta:1
+				});
+			});
 		}
 	}
 };

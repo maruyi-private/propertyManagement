@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uniCloud, uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -156,20 +156,35 @@ var _default =
     this.getCity();
   },
   methods: {
-    getCity: function getCity() {
-      var data = {
-        type: 5,
-        id: '',
-        login_token: this.$store.state.login_token };
-
+    getCity: function getCity() {var _this = this;
+      // const data ={
+      // 	type:5,
+      // 	id:'',
+      // 	login_token:this.$store.state.login_token
+      // }
+      this.list = this.$store.state.citys;
+      console.log('list', this.list);
+      if (this.list.length === 0) {
+        uniCloud.callFunction({
+          name: 'getCitys' }).
+        then(function (res) {
+          var citys = res.result.data;
+          _this.$store.commit('setCitys', citys);
+          _this.list = citys;
+        });
+      }
     },
     addCity: function addCity(item) {
       this.$store.commit('setCity', item);
+      this.$store.commit('setVillage', {});
+      this.$store.commit('setTower', {});
+      this.$store.commit('setUnit', {});
+      this.$store.commit('setRoom', {});
       uni.navigateBack({
         delta: 1 });
 
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 111)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

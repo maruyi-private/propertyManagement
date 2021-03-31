@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uniCloud, uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -157,20 +157,33 @@ var _default =
     this.getUnit();
   },
   methods: {
-    getUnit: function getUnit() {
-      var data = {
-        type: 3,
-        id: this.id,
-        login_token: this.$store.state.login_token };
-
+    getUnit: function getUnit() {var _this = this;
+      // const data ={
+      // 	type:3,
+      // 	id:this.id,
+      // 	login_token:this.$store.state.login_token
+      // }
+      this.list = this.$store.state.units;
+      console.log(this.id);
+      if (this.list.length === 0) {
+        uniCloud.callFunction({
+          name: 'getUnits',
+          data: { towerid: this.id } }).
+        then(function (res) {
+          var projects = res.result.data;
+          _this.$store.commit('setUnits', projects);
+          _this.list = projects;
+        });
+      }
     },
     addUnit: function addUnit(item) {
       this.$store.commit('setUnit', item);
+      this.$store.commit('setRoom', {});
       uni.navigateBack({
         delta: 1 });
 
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 111)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

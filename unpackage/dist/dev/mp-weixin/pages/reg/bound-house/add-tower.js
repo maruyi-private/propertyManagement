@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uniCloud, uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -157,20 +157,33 @@ var _default =
     this.getTower();
   },
   methods: {
-    getTower: function getTower() {
-      var data = {
-        type: 2,
-        id: this.id,
-        login_token: this.$store.state.login_token };
-
+    getTower: function getTower() {var _this = this;
+      // const data ={
+      // 	type:2,
+      // 	id:this.id,
+      // 	login_token:this.$store.state.login_token
+      // }
+      this.list = this.$store.state.towers;
+      if (this.list.length === 0) {
+        uniCloud.callFunction({
+          name: 'getTowers',
+          data: { projectid: this.id } }).
+        then(function (res) {
+          var projects = res.result.data;
+          _this.$store.commit('setTowers', projects);
+          _this.list = projects;
+        });
+      }
     },
     addTower: function addTower(item) {
       this.$store.commit('setTower', item);
+      this.$store.commit('setUnit', {});
+      this.$store.commit('setRoom', {});
       uni.navigateBack({
         delta: 1 });
 
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 111)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

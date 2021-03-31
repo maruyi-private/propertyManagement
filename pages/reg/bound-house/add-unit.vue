@@ -26,14 +26,27 @@
 		},
 		methods: {
 			getUnit(){
-				const data ={
-					type:3,
-					id:this.id,
-					login_token:this.$store.state.login_token
+				// const data ={
+				// 	type:3,
+				// 	id:this.id,
+				// 	login_token:this.$store.state.login_token
+				// }
+				this.list = this.$store.state.units;
+				console.log(this.id);
+				if(this.list.length === 0) {
+					uniCloud.callFunction({
+						name: 'getUnits',
+						data: { towerid: this.id }
+					}).then((res) => {
+						const projects = res.result.data;
+						this.$store.commit('setUnits', projects);
+						this.list = projects;
+					})
 				}
 			},
 			addUnit(item){
 				this.$store.commit('setUnit',item);
+				this.$store.commit('setRoom', {});
 				uni.navigateBack({
 					delta:1
 				})

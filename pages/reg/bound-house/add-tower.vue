@@ -26,14 +26,27 @@
 		},
 		methods: {
 			getTower(){
-				const data ={
-					type:2,
-					id:this.id,
-					login_token:this.$store.state.login_token
+				// const data ={
+				// 	type:2,
+				// 	id:this.id,
+				// 	login_token:this.$store.state.login_token
+				// }
+				this.list = this.$store.state.towers;
+				if(this.list.length === 0) {
+					uniCloud.callFunction({
+						name: 'getTowers',
+						data: { projectid: this.id}
+					}).then((res) => {
+						const projects = res.result.data;
+						this.$store.commit('setTowers', projects);
+						this.list = projects;
+					})
 				}
 			},
 			addTower(item){
 				this.$store.commit('setTower',item);
+				this.$store.commit('setUnit', {});
+				this.$store.commit('setRoom', {});
 				uni.navigateBack({
 					delta:1
 				})
