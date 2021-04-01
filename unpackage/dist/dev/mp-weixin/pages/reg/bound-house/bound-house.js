@@ -289,10 +289,12 @@ __webpack_require__.r(__webpack_exports__);
           login_token: this.$store.state.login_token, //登录令牌
           idcard: this.idcard, //	身份证号
           realname: this.realname, //  姓名
-          projectid: this.village.projectid, //	项目id
+          projectid: this.village.projectid, //	楼盘id
           towerid: this.tower.towerid, //	楼栋id
           unitid: this.unit.unitid, //	单元id
-          roomnum: this.room.roomnum //	房间号
+          roomnum: this.room.roomnum, //	房间号
+          villageaddr: this.city.villageaddr, //城市名
+          villagename: this.village.projectname // 楼盘名
         } };
 
       if (!this.realname) {
@@ -325,9 +327,11 @@ __webpack_require__.r(__webpack_exports__);
           title: '绑定成功！' });
 
         _this.$store.commit('setMyHouse', res.result.id);
-        uni.navigateBack({
-          delta: 1 });
+        setTimeout(function () {
+          uni.navigateBack({
+            delta: 1 });
 
+        }, 1000);
       });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))

@@ -198,12 +198,12 @@ const store = new Vuex.Store({
 			// state.hasLogin = true;
 			if (data) {
 				state.hasBoundHouse = true;
-				uniCloud.callFunction({
+				await uniCloud.callFunction({
 					name: 'getMyHouse',
-					data: { id: data }
-				}).then((res) => {
-					console.log(res);
-					state.myHouse = res.result.data[0];
+					data: { id: data },
+					success:(res) => {
+						state.myHouse = res.result.data[0];
+					}
 				});
 			} else {
 				state.hasBoundHouse = false;
@@ -217,6 +217,16 @@ const store = new Vuex.Store({
 		},
 		setLoginToken(state, data) {
 			state.login_token = data.id;
+		},
+		async checkBindHouse(state, data) {
+			await uniCloud.callFunction({
+				name: 'checkBoundHourse',
+				data: { data },
+				success: (res) => {
+					state.myHouse = res.result.data[0];
+					if(res.result.data.length > 0) state.hasBoundHouse = true;
+				}
+			});
 		}
 	},
 	actions: {
@@ -250,6 +260,7 @@ const store = new Vuex.Store({
 			commit('setHasLogin');
 			commit('setUserInfo', data);
 			commit('setLoginToken', data);
+			commit('checkBindHouse', data.id);
 		},
 		async setMyHouse({state,commit}, data) {
 			commit('setMyHouse', data);

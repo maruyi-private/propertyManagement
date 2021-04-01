@@ -244,8 +244,18 @@ var _default =
       ownerInfo: '' };
 
   },
+  watch: {
+    hasBoundHouse: function hasBoundHouse(newValue, oldValue) {
+      console.log('newValue', newValue);
+      this.hasBoundHouse = newValue;
+    },
+    hasLogin: function hasLogin(newValue, oldValue) {
+      console.log('newValue1', newValue);
+      this.hasLogin = newValue;
+    } },
+
   onShow: function onShow() {
-    // this.getData();
+    console.log('this.$store.state.myHouse', this.$store.state.myHouse);
     this.setHasBoundHouseStatus();
     this.setHasLoginStatus();
   },
@@ -291,31 +301,13 @@ var _default =
       this.$Router.push({ name: url });
     },
     setHasBoundHouseStatus: function setHasBoundHouseStatus() {
-      console.log('hasBoundHouse1', this.$store.state.hasBoundHouse);
       this.hasBoundHouse = this.$store.state.hasBoundHouse;
     },
     setHasLoginStatus: function setHasLoginStatus() {
-      console.log('hasLogin1', this.$store.state.hasLogin);
       this.hasLogin = this.$store.state.hasLogin;
     } },
 
-  // watch: {
-  // 	userInfo(val, oldval) {
-  // 		this.tabIndex = val;
-  // 	}
-  // },
   computed: {
-    // userInfo() {
-    // 	let userInfo = {};
-    // 	try {
-    // 		userInfo = uni.getStorageSync('userInfo');
-    // 		console.log('userinfo', userInfo);
-    // 		return userInfo;
-    // 	} catch (e) {
-    // 		// error
-    // 	}
-    // 	return userInfo;
-    // },
     userInfo: function userInfo() {
       return this.$store.state.userInfo;
     },

@@ -38,16 +38,19 @@ export default {
 					}
 				})
 			}).then(userInfo => {
-				this.$store.dispatch('setUserData', userInfo);
-				uni.switchTab({
-				    url: '/pages/user/center/center',
-					success: function (e) {
-					    var page = getCurrentPages()[0]
-					    if (page == undefined || page == null) return;
-						page.onLoad({
-							...page.options
+				this.$store.dispatch('setUserData', userInfo).then(() => {
+					setTimeout(() => {
+						uni.switchTab({
+						    url: '/pages/user/center/center',
+							success: function (e) {
+							    var page = getCurrentPages()[0]
+							    if (page == undefined || page == null) return;
+								page.onLoad({
+									...page.options
+								});
+							}
 						});
-					}
+					}, 200);
 				});
 			})
 		}
