@@ -3,7 +3,7 @@
 		<view class="uni-flex-center">
 			<view class="uni-cell-95">
 				<view>请选择报修内容</view>
-				<!-- <view class="uni-font-20 color-font-gray">您的选择可以帮助我们更快速的安排相应的人员进行处理</view> -->
+				<view class="uni-font-20 color-font-gray">您的选择可以帮助我们更快速的安排相应的人员进行处理</view>
 				<view class="report-content">
 					<view v-for="(item, index) in types" :key="index" @click="changeType(index)" class="_box" :class="{ _boxActive: indexType === index }">
 						{{ item.typename }}
@@ -14,7 +14,7 @@
 		<view class="uni-flex-center">
 			<view class="uni-cell-95 maintenance-content">
 				<catLabel text="报修内容" dataType="textarea" v-model="content" placeholder="请在此填写你所遇到的问题。" />
-				<image-drag-sort @imageUpload="imageUploadComplaint" :picNum="3"></image-drag-sort>
+				<!-- <image-drag-sort @imageUpload="imageUploadComplaint" :picNum="3"></image-drag-sort> -->
 				<radio-group @change="radioChange" style="display: flex;margin: 20upx;">
 					<view v-for="(item, index) in items" :key="item.value" style="margin: 10upx;">
 						<label :style="{ color: index == delCurrent ? '#ff8402' : '#000000' }">
@@ -64,13 +64,13 @@
 </template>
 <script>
 import catLabel from '@/components/cat-label/cat-label.vue';
-import imageDragSort from '@/components/image-drag-sort/index.vue';
+// import imageDragSort from '@/components/image-drag-sort/index.vue';
 import wPicker from '@/components/w-picker/w-picker.vue';
 import qiniuUploader from '@/common/js/qiniuUploader.js';
 export default {
 	components: {
 		catLabel,
-		imageDragSort,
+		// imageDragSort,
 		wPicker
 	},
 	data() {
@@ -142,40 +142,40 @@ export default {
 			this.complaintImages = img;
 		},
 
-		imageUploads() {
-			let _this = this;
-			return new Promise(resolve => {
-				let keys = [];
-				let token = this.qiniuDatas.Data;
-				let domain = this.qiniuDatas.http_domain;
-				let bucket = this.qiniuDatas.bucket;
-				_this.complaintImages.forEach(filePath => {
-					let key = 'sunest-' + this.nowDay + '-' + new Date().getTime() + '.jpg';
-					keys.push(key);
-					qiniuUploader.upload(
-						filePath,
-						res => {
-							// console.log('ressss: ' + JSON.stringify(res));
-						},
-						error => {
-							// resolve(error)
-						},
-						{
-							region: 'SCN', // ECN, SCN, NCN, NA, ASG，分别对应七牛的：华东，华南，华北，北美，新加坡 5 个区域
-							domain: domain, // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
-							key: key, // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
-							// 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
-							uptoken: token // 由其他程序生成七牛 uptoken
-						},
-						res => {
-							if(res.progress === 100){
-								resolve(keys);
-							}
-						}
-					);
-				});
-			});
-		},
+		// imageUploads() {
+		// 	let _this = this;
+		// 	return new Promise(resolve => {
+		// 		let keys = [];
+		// 		let token = this.qiniuDatas.Data;
+		// 		let domain = this.qiniuDatas.http_domain;
+		// 		let bucket = this.qiniuDatas.bucket;
+		// 		_this.complaintImages.forEach(filePath => {
+		// 			let key = 'sunest-' + this.nowDay + '-' + new Date().getTime() + '.jpg';
+		// 			keys.push(key);
+		// 			qiniuUploader.upload(
+		// 				filePath,
+		// 				res => {
+		// 					// console.log('ressss: ' + JSON.stringify(res));
+		// 				},
+		// 				error => {
+		// 					// resolve(error)
+		// 				},
+		// 				{
+		// 					region: 'SCN', // ECN, SCN, NCN, NA, ASG，分别对应七牛的：华东，华南，华北，北美，新加坡 5 个区域
+		// 					domain: domain, // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
+		// 					key: key, // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
+		// 					// 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
+		// 					uptoken: token // 由其他程序生成七牛 uptoken
+		// 				},
+		// 				res => {
+		// 					if(res.progress === 100){
+		// 						resolve(keys);
+		// 					}
+		// 				}
+		// 			);
+		// 		});
+		// 	});
+		// },
 		async sub() {
 			let _this = this;
 			let imgs = ''; //七牛云图片名
@@ -186,6 +186,7 @@ export default {
 					//TODO handle the exception
 				}
 			}
+			console.log('imgs', imgs);
 			let data = {
 				type: this.types[this.indexType].id,
 				content: this.content,
@@ -195,6 +196,7 @@ export default {
 				endtime: this.$uitls.toTimesTamp(this.endtime),
 				contact: this.person[this.personCurrent].id
 			};
+			console.log('data', data);
 			if (!this.content) {
 				uni.showToast({
 					icon: 'none',

@@ -205,11 +205,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/qiniuUploader.js */ 490));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var catLabel = function catLabel() {__webpack_require__.e(/*! require.ensure | components/cat-label/cat-label */ "components/cat-label/cat-label").then((function () {return resolve(__webpack_require__(/*! @/components/cat-label/cat-label.vue */ 513));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var imageDragSort = function imageDragSort() {__webpack_require__.e(/*! require.ensure | components/image-drag-sort/index */ "components/image-drag-sort/index").then((function () {return resolve(__webpack_require__(/*! @/components/image-drag-sort/index.vue */ 552));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var wPicker = function wPicker() {Promise.all(/*! require.ensure | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 500));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/qiniuUploader.js */ 490));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var catLabel = function catLabel() {__webpack_require__.e(/*! require.ensure | components/cat-label/cat-label */ "components/cat-label/cat-label").then((function () {return resolve(__webpack_require__(/*! @/components/cat-label/cat-label.vue */ 513));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var wPicker = function wPicker() {Promise.all(/*! require.ensure | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then((function () {return resolve(__webpack_require__(/*! @/components/w-picker/w-picker.vue */ 500));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     catLabel: catLabel,
-    imageDragSort: imageDragSort,
+    // imageDragSort,
     wPicker: wPicker },
 
   data: function data() {
@@ -281,70 +281,72 @@ var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/
       this.complaintImages = img;
     },
 
-    imageUploads: function imageUploads() {var _this2 = this;
-      var _this = this;
-      return new Promise(function (resolve) {
-        var keys = [];
-        var token = _this2.qiniuDatas.Data;
-        var domain = _this2.qiniuDatas.http_domain;
-        var bucket = _this2.qiniuDatas.bucket;
-        _this.complaintImages.forEach(function (filePath) {
-          var key = 'sunest-' + _this2.nowDay + '-' + new Date().getTime() + '.jpg';
-          keys.push(key);
-          _qiniuUploader.default.upload(
-          filePath,
-          function (res) {
-            // console.log('ressss: ' + JSON.stringify(res));
-          },
-          function (error) {
-            // resolve(error)
-          },
-          {
-            region: 'SCN', // ECN, SCN, NCN, NA, ASG，分别对应七牛的：华东，华南，华北，北美，新加坡 5 个区域
-            domain: domain, // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
-            key: key, // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
-            // 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
-            uptoken: token // 由其他程序生成七牛 uptoken
-          },
-          function (res) {
-            if (res.progress === 100) {
-              resolve(keys);
-            }
-          });
-
-        });
-      });
-    },
-    sub: function sub() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this, imgs, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                _this = _this3;
+    // imageUploads() {
+    // 	let _this = this;
+    // 	return new Promise(resolve => {
+    // 		let keys = [];
+    // 		let token = this.qiniuDatas.Data;
+    // 		let domain = this.qiniuDatas.http_domain;
+    // 		let bucket = this.qiniuDatas.bucket;
+    // 		_this.complaintImages.forEach(filePath => {
+    // 			let key = 'sunest-' + this.nowDay + '-' + new Date().getTime() + '.jpg';
+    // 			keys.push(key);
+    // 			qiniuUploader.upload(
+    // 				filePath,
+    // 				res => {
+    // 					// console.log('ressss: ' + JSON.stringify(res));
+    // 				},
+    // 				error => {
+    // 					// resolve(error)
+    // 				},
+    // 				{
+    // 					region: 'SCN', // ECN, SCN, NCN, NA, ASG，分别对应七牛的：华东，华南，华北，北美，新加坡 5 个区域
+    // 					domain: domain, // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
+    // 					key: key, // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
+    // 					// 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
+    // 					uptoken: token // 由其他程序生成七牛 uptoken
+    // 				},
+    // 				res => {
+    // 					if(res.progress === 100){
+    // 						resolve(keys);
+    // 					}
+    // 				}
+    // 			);
+    // 		});
+    // 	});
+    // },
+    sub: function sub() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this, imgs, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                _this = _this2;
                 imgs = ''; //七牛云图片名
-                if (!(_this3.complaintImages.length !== 0)) {_context.next = 11;break;}_context.prev = 3;_context.next = 6;return (
+                if (!(_this2.complaintImages.length !== 0)) {_context.next = 11;break;}_context.prev = 3;_context.next = 6;return (
 
-                  _this3.imageUploads());case 6:imgs = _context.sent;_context.next = 11;break;case 9:_context.prev = 9;_context.t0 = _context["catch"](3);case 11:
-
-
+                  _this2.imageUploads());case 6:imgs = _context.sent;_context.next = 11;break;case 9:_context.prev = 9;_context.t0 = _context["catch"](3);case 11:
 
 
+
+
+                console.log('imgs', imgs);
                 data = {
-                  type: _this3.types[_this3.indexType].id,
-                  content: _this3.content,
+                  type: _this2.types[_this2.indexType].id,
+                  content: _this2.content,
                   imgs: JSON.stringify(imgs),
-                  emergency: _this3.emergency,
-                  starttime: _this3.$uitls.toTimesTamp(_this3.times),
-                  endtime: _this3.$uitls.toTimesTamp(_this3.endtime),
-                  contact: _this3.person[_this3.personCurrent].id };if (
+                  emergency: _this2.emergency,
+                  starttime: _this2.$uitls.toTimesTamp(_this2.times),
+                  endtime: _this2.$uitls.toTimesTamp(_this2.endtime),
+                  contact: _this2.person[_this2.personCurrent].id };
 
-                _this3.content) {_context.next = 15;break;}
+                console.log('data', data);if (
+                _this2.content) {_context.next = 17;break;}
                 uni.showToast({
                   icon: 'none',
-                  title: '请填写报修内容' });return _context.abrupt("return");case 15:if (
+                  title: '请填写报修内容' });return _context.abrupt("return");case 17:if (
 
 
 
-                _this3.contact) {_context.next = 18;break;}
+                _this2.contact) {_context.next = 20;break;}
                 uni.showToast({
                   icon: 'none',
-                  title: '请先选择联系人' });return _context.abrupt("return");case 18:case "end":return _context.stop();}}}, _callee, null, [[3, 9]]);}))();
+                  title: '请先选择联系人' });return _context.abrupt("return");case 20:case "end":return _context.stop();}}}, _callee, null, [[3, 9]]);}))();
 
 
 

@@ -38,9 +38,22 @@ const store = new Vuex.Store({
 		orderData: '', //支付订单数据
 		accountData: '', //用户账户信息
 
-		qiniuData: '', //服务端七牛云数据
+		qiniuData: '123', //服务端七牛云数据
 		contacts: '', //报事报修联系人
-		familyData: '', //报事报修
+		familyData: [ //报事报修类型
+			{
+				typename: '水电',
+				id: 0
+			},
+			{
+				typename: '天然气',
+				id: 1
+			},
+			{
+				typename: '其它',
+				id: 2
+			}
+		],
 		publicData: '', //投诉建议
 
 		pushMessage:'', //推送数据
@@ -87,9 +100,9 @@ const store = new Vuex.Store({
 		setAccountData(state, data) {
 			state.accountData = data;
 		},
-		setFamilyData(state, data) {
-			state.familyData = data;
-		},
+		// setFamilyData(state, data) {
+		// 	state.familyData = data;
+		// },
 		setPublicData(state, data) {
 			state.publicData = data;
 		},
