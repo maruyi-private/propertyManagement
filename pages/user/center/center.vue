@@ -167,6 +167,11 @@ export default {
 			this.hasLogin = this.$store.state.hasLogin;
 		}
 	},
+	// watch: {
+	// 	userInfo(val, oldval) {
+	// 		this.tabIndex = val;
+	// 	}
+	// },
 	computed: {
 		// userInfo() {
 		// 	let userInfo = {};
@@ -180,7 +185,6 @@ export default {
 		// 	return userInfo;
 		// },
 		userInfo() {
-			console.log('userInfo1', this.$store.state.userInfo);
 			return this.$store.state.userInfo;
 		},
 		myHouse() {

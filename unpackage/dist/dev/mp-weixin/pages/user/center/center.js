@@ -299,6 +299,11 @@ var _default =
       this.hasLogin = this.$store.state.hasLogin;
     } },
 
+  // watch: {
+  // 	userInfo(val, oldval) {
+  // 		this.tabIndex = val;
+  // 	}
+  // },
   computed: {
     // userInfo() {
     // 	let userInfo = {};
@@ -312,7 +317,6 @@ var _default =
     // 	return userInfo;
     // },
     userInfo: function userInfo() {
-      console.log('userInfo1', this.$store.state.userInfo);
       return this.$store.state.userInfo;
     },
     myHouse: function myHouse() {

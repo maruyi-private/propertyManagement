@@ -84,5 +84,6 @@
   },
   "usingComponents": {
     "router-link": "/node-modules/uni-simple-router/component/router-link"
-  }
+  },
+  "sitemapLocation": "sitemap5.json"
 }

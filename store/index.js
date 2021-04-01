@@ -203,7 +203,7 @@ const store = new Vuex.Store({
 					data: { id: data }
 				}).then((res) => {
 					console.log(res);
-					state.myHouse = res.result.data;
+					state.myHouse = res.result.data[0];
 				});
 			} else {
 				state.hasBoundHouse = false;
