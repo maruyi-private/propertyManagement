@@ -17,6 +17,7 @@ Vue.prototype.$store = store
 Vue.prototype.$api = api
 Vue.prototype.$uitls = uitls
 Vue.prototype.$util = util
+Vue.prototype.$docType = { 报修: 0, 报事: 1 }
 
 App.mpType = 'app'
 

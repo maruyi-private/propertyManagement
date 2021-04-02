@@ -39,7 +39,7 @@ const store = new Vuex.Store({
 		accountData: '', //用户账户信息
 
 		qiniuData: '123', //服务端七牛云数据
-		contacts: '', //报事报修联系人
+		contacts: [], //报事报修联系人
 		familyData: [ //报事报修类型
 			{
 				typename: '水电',

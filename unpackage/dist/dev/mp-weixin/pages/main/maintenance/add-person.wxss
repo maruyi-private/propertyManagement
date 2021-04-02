@@ -9,4 +9,15 @@
 	height: 80rpx;
 	line-height: 80rpx;
 }
+.saveButton {
+	width: 90%;
+	height: 80rpx;
+	line-height: 80rpx;
+	-webkit-border-radius: 40rpx;
+	        border-radius: 40rpx;
+	margin-bottom: 40rpx;
+	margin-top: 40rpx;
+	color: #ffffff;
+	background-color: #007AFF;
+}
 

@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var jianyi = function jianyi() {Promise.all(/*! require.ensure | pages/main/maintenance/tenance-jianyi */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/main/maintenance/tenance-jianyi")]).then((function () {return resolve(__webpack_require__(/*! ./tenance-jianyi.vue */ 485));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var baoxiu = function baoxiu() {Promise.all(/*! require.ensure | pages/main/maintenance/tenance-baoxiu */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/main/maintenance/tenance-baoxiu")]).then((function () {return resolve(__webpack_require__(/*! ./tenance-baoxiu.vue */ 493));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var jianyi = function jianyi() {Promise.all(/*! require.ensure | pages/main/maintenance/tenance-jianyi */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/main/maintenance/tenance-jianyi")]).then((function () {return resolve(__webpack_require__(/*! ./tenance-jianyi.vue */ 486));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var baoxiu = function baoxiu() {Promise.all(/*! require.ensure | pages/main/maintenance/tenance-baoxiu */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/main/maintenance/tenance-baoxiu")]).then((function () {return resolve(__webpack_require__(/*! ./tenance-baoxiu.vue */ 494));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -181,11 +181,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   onShow: function onShow() {
     // this.getRepairStart();
   },
-  onLoad: function onLoad() {
+  onLoad: function onLoad() {var _this = this;
     this.current = this.$Route.query.id;
-    console.log("this.$Route.query: " + JSON.stringify(this.$Route.query.id));
+    uniCloud.callFunction({
+      name: 'getContactPerson',
+      data: { userId: this.$store.state.login_token },
+      success: function success(res) {
+        _this.$store.commit('setContacts', res.result.data);
+      } });
+
+    // console.log("this.$Route.query: " + JSON.stringify(this.$Route.query.id));
     // this.getUpToken();
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
 
 /***/ }),
 

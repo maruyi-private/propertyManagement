@@ -51,7 +51,14 @@ export default {
 	},
 	onLoad() {
 		this.current = this.$Route.query.id;
-		console.log("this.$Route.query: " + JSON.stringify(this.$Route.query.id));
+		uniCloud.callFunction({
+			name: 'getContactPerson',
+			data: { userId: this.$store.state.login_token },
+			success: (res) => {
+				this.$store.commit('setContacts', res.result.data);
+			}
+		});
+		// console.log("this.$Route.query: " + JSON.stringify(this.$Route.query.id));
 		// this.getUpToken();
 	}
 };

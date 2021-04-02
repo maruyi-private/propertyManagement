@@ -153,7 +153,34 @@ function initPicker(start, end, mode = "date", step, value, flag) {
 	}
 }
 
+function createUniqueId() {
+	const random = function() { // 生成10-12位不等的字符串
+		return Number(Math.random().toString().substr(2)).toString(36); // 转换成十六进制
+	}
+	let arr = [];
+	function createId() {
+		const num = random();
+		let _bool = false;
+		arr.forEach(v => {
+			if(v === num) _bool = true;
+		});
+		if(_bool) {
+			createId();
+		}else {
+			arr.push(num);
+		}
+	}
+	let i = 0;
+	// 生成一个
+	while(i < 1) {
+		createId();
+		i++;
+	}
+	return arr.toString();
+}
+
 export {
 	initDays,
-	initPicker
+	initPicker,
+	createUniqueId
 }

@@ -96,7 +96,7 @@ var components
 try {
   components = {
     userReview: function() {
-      return __webpack_require__.e(/*! import() | components/user-review/user-review */ "components/user-review/user-review").then(__webpack_require__.bind(null, /*! @/components/user-review/user-review.vue */ 471))
+      return __webpack_require__.e(/*! import() | components/user-review/user-review */ "components/user-review/user-review").then(__webpack_require__.bind(null, /*! @/components/user-review/user-review.vue */ 472))
     }
   }
 } catch (e) {
@@ -168,7 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userReview = function userReview() {__webpack_require__.e(/*! require.ensure | components/user-review/user-review */ "components/user-review/user-review").then((function () {return resolve(__webpack_require__(/*! @/components/user-review/user-review.vue */ 471));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userReview = function userReview() {__webpack_require__.e(/*! require.ensure | components/user-review/user-review */ "components/user-review/user-review").then((function () {return resolve(__webpack_require__(/*! @/components/user-review/user-review.vue */ 472));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

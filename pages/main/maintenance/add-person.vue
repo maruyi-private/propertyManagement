@@ -10,11 +10,12 @@
 				<input type="number" class="uni-cell-80" clearable  v-model="form.tel" placeholder="请输入联系人手机号"/>
 			</view>
 		</view>
+		<button class="saveButton" @click="register">保存</button>
 	</view>
 </template>
 
 <script>
-
+import { createUniqueId } from '@/common/util.js'
 export default {
 	data() {
 		return {
@@ -24,12 +25,11 @@ export default {
 			}
 		};
 	},
-	onNavigationBarButtonTap(res){
-		this.register();
-	},
+	// onNavigationBarButtonTap(res){
+	// 	this.register();
+	// },
 	methods: {
 		isPhone(e) {
-			console.log(JSON.stringify(e));
 			let phone = e;
 			var myreg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
 			if (myreg.test(phone) === false) {
@@ -41,10 +41,12 @@ export default {
 			}
 			return true;
 		},
-		register() {
+		async register() {
+			const uuid = createUniqueId();
 			const data = {
-				name: this.name,
-				tel: this.tel,
+				id: uuid,
+				login_token: this.$store.state.login_token,
+				...this.form
 			};
 			if(!this.form.name){
 				uni.showToast({
@@ -54,7 +56,23 @@ export default {
 				return;
 			}
 			const isphone =  this.isPhone(this.form.tel);
+			const contactPerson = [];
+			if(this.$store.state.contacts && this.$store.state.contacts.length != 0) {
+				contactPerson.push(this.$store.state.contacts);
+			}
+			contactPerson.push(data);
 			
+			uniCloud.callFunction({
+				name: 'addContactPerson',
+				data: { contactPerson: contactPerson },
+				success: (res) => {
+					uni.showToast({
+						icon: 'none',
+						title: '添加成功！'
+					});
+					this.$store.commit('setContacts', contactPerson);
+				}
+			});
 		}
 	}
 };
@@ -70,5 +88,15 @@ export default {
 	.border input{
 		height: 80upx;
 		line-height: 80upx;
+	}
+	.saveButton {
+		width: 90%;
+		height: 80upx;
+		line-height: 80upx;
+		border-radius: 40upx;
+		margin-bottom: 40upx;
+		margin-top: 40upx;
+		color: #ffffff;
+		background-color: #007AFF;
 	}
 </style>

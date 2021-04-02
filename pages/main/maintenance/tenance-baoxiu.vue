@@ -15,6 +15,11 @@
 			<view class="uni-cell-95 maintenance-content">
 				<catLabel text="报修内容" dataType="textarea" v-model="content" placeholder="请在此填写你所遇到的问题。" />
 				<!-- <image-drag-sort @imageUpload="imageUploadComplaint" :picNum="3"></image-drag-sort> -->
+				
+				<!-- <view v-if="complaintImages.length > 0">
+					<image v-for="(item, index)" :src="item" :id="index"></image>
+				</view>
+				<view class="scroll-view-item_H" @click="addImg"><view class="_add_person">+ 添加照片</view></view> -->
 				<radio-group @change="radioChange" style="display: flex;margin: 20upx;">
 					<view v-for="(item, index) in items" :key="item.value" style="margin: 10upx;">
 						<label :style="{ color: index == delCurrent ? '#ff8402' : '#000000' }">
@@ -80,7 +85,7 @@ export default {
 			personCurrent: 0, //默认联系人
 			indexType: 0, //报修类型的索引
 			indexComplaintType: 0,
-			complaintImages: [], //报事报修要上传的图片
+			// complaintImages: [], //报事报修要上传的图片
 			times: null,
 			content: '', //报修内容
 			type: '', //报修类型
@@ -138,9 +143,9 @@ export default {
 			this.$Router.push({ name: 'add-person' });
 		},
 		//报事报修要上传的图片
-		imageUploadComplaint(img) {
-			this.complaintImages = img;
-		},
+		// imageUploadComplaint(img) {
+		// 	this.complaintImages = img;
+		// },
 
 		// imageUploads() {
 		// 	let _this = this;
@@ -176,27 +181,36 @@ export default {
 		// 		});
 		// 	});
 		// },
+		// addImg() {
+		// 	uni.chooseImage({
+		// 	    count: 2, //默认9
+		// 		success: (res) => {
+		// 			this.complaintImages = res.tempFilePaths;
+		// 			console.log('res', res);
+		// 	    }
+		// 	});
+		// },
 		async sub() {
 			let _this = this;
-			let imgs = ''; //七牛云图片名
-			if (this.complaintImages.length !== 0) {
-				try {
-					imgs = await this.imageUploads();
-				} catch (e) {
-					//TODO handle the exception
-				}
-			}
-			console.log('imgs', imgs);
+			// let imgs = ''; //七牛云图片名
+			// if (this.complaintImages.length !== 0) {
+			// 	try {
+			// 		imgs = await this.imageUploads();
+			// 	} catch (e) {
+			// 		//TODO handle the exception
+			// 	}
+			// }
 			let data = {
 				type: this.types[this.indexType].id,
 				content: this.content,
-				imgs: JSON.stringify(imgs),
+				// imgs: JSON.stringify(imgs),
 				emergency: this.emergency,
 				starttime: this.$uitls.toTimesTamp(this.times),
 				endtime: this.$uitls.toTimesTamp(this.endtime),
-				contact: this.person[this.personCurrent].id
+				contact: this.person[this.personCurrent].id,
+				state: 0,  // 0：未处理 、1：已处理
+				docType: this.$docType.报修
 			};
-			console.log('data', data);
 			if (!this.content) {
 				uni.showToast({
 					icon: 'none',
@@ -204,13 +218,29 @@ export default {
 				});
 				return;
 			}
-			if (!this.contact) {
+			if (this.$store.state.contacts.length == 0 && !this.contact) {
 				uni.showToast({
 					icon: 'none',
 					title: '请先选择联系人'
 				});
 				return;
 			}
+			uniCloud.callFunction({
+				name: 'addReportRepair',
+				data: { data },
+				success: () => {
+					uni.showToast({
+						icon: 'none',
+						title: '提交成功！'
+					});
+					setTimeout(() => {
+						uni.navigateBack({
+							delta: 1
+						});
+					}, 1000);
+				}
+			});
+			// console.log('data', data);
 		},
 		getNowTime() {
 			this.$forceUpdate();
@@ -229,7 +259,6 @@ export default {
 	mounted() {
 		this.type = this.types[this.indexType].id;
 		if(this.person){
-			console.log(111);
 			this.contact = this.person[this.personCurrent].id;
 		}
 	},
