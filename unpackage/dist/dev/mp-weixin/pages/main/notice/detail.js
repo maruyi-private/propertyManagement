@@ -97,6 +97,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var f0 = _vm._f("formatDate")(_vm.strings.ctime, _vm.strings.ctime)
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        f0: f0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -130,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -144,14 +154,33 @@ var _default =
 {
   data: function data() {
     return {
-      strings: '',
+      strings: {},
       id: '' };
 
   },
+  filters: {
+    formatDate: function formatDate(date) {
+      var nDate = new Date(date);
+      var year = nDate.getFullYear();
+      var month = nDate.getMonth().toString().padStart(2, 0);
+      var day = nDate.getDay().toString().padStart(2, 0);
+      return year + "-" + month + "-" + day;
+    } },
+
   methods: {
-    getCircularInfo: function getCircularInfo() {
-      var data = {
-        id: this.id };
+    getCircularInfo: function getCircularInfo() {var _this = this;
+      uniCloud.callFunction({
+        name: 'getNoticeById',
+        data: {
+          id: this.id },
+
+        success: function success(res) {
+          console.log('res', res);
+          _this.strings = res.result.data[0];
+        },
+        fail: function fail() {
+          console.log('error');
+        } });
 
     } },
 
@@ -159,6 +188,7 @@ var _default =
     this.id = this.$Route.query.id;
     this.getCircularInfo();
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
 
 /***/ }),
 

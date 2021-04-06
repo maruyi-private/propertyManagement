@@ -97,6 +97,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.list, function(item, index) {
+    var $orig = _vm.__get_orig(item)
+
+    var f0 = _vm._f("formatDate")(item.ctime, item.ctime)
+
+    return {
+      $orig: $orig,
+      f0: f0
+    }
+  })
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -130,7 +149,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;} //
+//
 //
 //
 //
@@ -152,26 +172,53 @@ var _default =
     return {
       list: [],
       page: 1,
-      limit: 10000 };
+      limit: 10,
+      flag: false };
 
   },
+  filters: {
+    formatDate: function formatDate(date) {
+      var nDate = new Date(parseInt(date));
+      var year = nDate.getFullYear();
+      var month = nDate.getMonth().toString().padStart(2, 0);
+      var day = nDate.getDay().toString().padStart(2, 0);
+      return year + "-" + month + "-" + day;
+    } },
+
   onReachBottom: function onReachBottom() {
+    if (this.list.length < (this.page - 1) * this.limit) {
+      this.flag = true;
+      return;
+    }
+    this.getList();
     // console.log('我触底了要加载数据了: ' + JSON.stringify('我触底了要加载数据了'));
   },
   methods: {
     detail: function detail(item) {
-      this.$Router.push({ name: 'notice-detail', params: { id: item.id } });
+      this.$Router.push({ name: 'notice-detail', params: { id: item._id } });
     },
-    getList: function getList() {
-      var data = {
-        page: this.page,
-        limit: this.limit };
+    getList: function getList() {var _this = this;
+      console.log('here');
+      uniCloud.callFunction({
+        name: 'getNotices',
+        data: {
+          page: this.page++,
+          limit: this.limit },
+
+        success: function success(res) {
+          console.log('res', res);
+          _this.list = [].concat(_toConsumableArray(_this.list), _toConsumableArray(res.result.data));
+        },
+        fail: function fail() {
+          console.log('error');
+        } });
 
     } },
 
   onLoad: function onLoad() {
-    // this.getList()
+    this.getList();
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
 
 /***/ }),
 

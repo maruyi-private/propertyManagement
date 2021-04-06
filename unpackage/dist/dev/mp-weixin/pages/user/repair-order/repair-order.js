@@ -156,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniCard = function uniCard() {__webpack_require__.e(/*! require.ensure | components/uni-card/uni-card */ "components/uni-card/uni-card").then((function () {return resolve(__webpack_require__(/*! @/components/uni-card/uni-card.vue */ 465));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSegmentedControl = function uniSegmentedControl() {__webpack_require__.e(/*! require.ensure | components/uni-segmented-control/uni-segmented-control */ "components/uni-segmented-control/uni-segmented-control").then((function () {return resolve(__webpack_require__(/*! @/components/uni-segmented-control/uni-segmented-control.vue */ 458));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniCard = function uniCard() {__webpack_require__.e(/*! require.ensure | components/uni-card/uni-card */ "components/uni-card/uni-card").then((function () {return resolve(__webpack_require__(/*! @/components/uni-card/uni-card.vue */ 465));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSegmentedControl = function uniSegmentedControl() {__webpack_require__.e(/*! require.ensure | components/uni-segmented-control/uni-segmented-control */ "components/uni-segmented-control/uni-segmented-control").then((function () {return resolve(__webpack_require__(/*! @/components/uni-segmented-control/uni-segmented-control.vue */ 458));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -188,7 +188,9 @@ __webpack_require__.r(__webpack_exports__);
       activeColor: '#ed7a30',
       current: 0,
       styleType: 'text',
-      list: [] };
+      list: [],
+      familyData: [],
+      publicData: [] };
 
   },
   computed: {},
@@ -205,19 +207,52 @@ __webpack_require__.r(__webpack_exports__);
     },
     getDetail: function getDetail(item) {
       uni.navigateTo({
-        url: '/pages/user/repair-order/detail?data=' + JSON.stringify(item.id) });
+        url: '/pages/user/repair-order/detail?data=' + item._id });
 
     },
-    getRepairlist: function getRepairlist() {
-      var data = {
-        status: this.current };
+    getRepairlist: function getRepairlist() {var _this = this;
+      uniCloud.callFunction({
+        name: 'getCurrentDocByStatus',
+        data: {
+          status: this.current,
+          userId: this.$store.state.login_token },
 
+        success: function success(res) {
+          console.log('res', res);
+          _this.list = res.result[0];
+        },
+        fail: function fail(error) {
+          console.log('error', error);
+        } });
+
+
+    },
+    typeName: function typeName(item) {
+      if (item.docType === 0) {
+        return this.$store.state.familyData.filter(function (e) {
+          if (e.id === item.type) {
+            console.log('typename', e.typename);
+            return e.typename.toString();
+          }
+        });
+      } else {
+        return this.$store.state.publicData.filter(function (e) {
+          if (e.id === item.type) {
+            return e.typename.toString();
+          }
+        });
+      }
+    },
+    setFamilyPublicData: function setFamilyPublicData() {
+      this.familyData = this.$store.state.familyData.map(function (x) {return x.typename;});
+      this.publicData = this.$store.state.publicData.map(function (x) {return x.typename;});
     } },
 
   onLoad: function onLoad() {
+    this.setFamilyPublicData();
     this.getRepairlist();
   } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
 
 /***/ }),
 

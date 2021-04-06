@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -209,7 +209,7 @@ var _default =
       showImg: '',
       imgs: [],
       orderId: '',
-      repairData: '' };
+      repairData: {} };
 
   },
   computed: {
@@ -227,9 +227,13 @@ var _default =
       this.mark = !this.mark;
       this.showImg = this.baseImgUrls + urlImg;
     },
-    getRepairDetail: function getRepairDetail() {
-      var data = {
-        id: this.orderId };
+    getRepairDetail: function getRepairDetail() {var _this = this;
+      uniCloud.callFunction({
+        name: 'getDocById',
+        data: { id: this.orderId },
+        success: function success(res) {
+          _this.repairData = res.result.data[0];
+        } });
 
     },
     evaluate: function evaluate() {
@@ -240,6 +244,7 @@ var _default =
 
   onLoad: function onLoad(option) {
     this.orderId = option.data;
+    console.log(this.orderId);
     this.getRepairDetail();
   },
   onShow: function onShow() {
@@ -247,6 +252,7 @@ var _default =
       this.getRepairDetail();
     }
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
 
 /***/ }),
 

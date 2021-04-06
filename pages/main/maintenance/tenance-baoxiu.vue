@@ -208,7 +208,7 @@ export default {
 				starttime: this.$uitls.toTimesTamp(this.times),
 				endtime: this.$uitls.toTimesTamp(this.endtime),
 				contact: this.person[this.personCurrent].id,
-				state: 0,  // 0：未处理 、1：已处理
+				state: this.$docStatus.待接单,
 				docType: this.$docType.报修
 			};
 			if (!this.content) {

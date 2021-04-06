@@ -77,7 +77,7 @@ export default {
 			showImg: '',
 			imgs: [],
 			orderId: '',
-			repairData: ''
+			repairData: {}
 		};
 	},
 	computed: {
@@ -96,9 +96,13 @@ export default {
 			this.showImg = this.baseImgUrls + urlImg;
 		},
 		getRepairDetail() {
-			let data = {
-				id: this.orderId
-			};
+			uniCloud.callFunction({
+				name: 'getDocById',
+				data: { id: this.orderId },
+				success: (res) => {
+					this.repairData = res.result.data[0];
+				}
+			})
 		},
 		evaluate() {
 			if(this.repairData.id){
@@ -108,6 +112,7 @@ export default {
 	},
 	onLoad(option) {
 		this.orderId = option.data;
+		console.log(this.orderId);
 		this.getRepairDetail();
 	},
 	onShow() {

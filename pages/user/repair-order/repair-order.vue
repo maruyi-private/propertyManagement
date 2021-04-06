@@ -6,7 +6,7 @@
 			</view>
 		</view>
          <view class="repair-order-content">
-         	<uni-card v-for="(item, index) in list" :key="index" :title="item.typename" :extra="items[current]">
+         	<uni-card v-for="(item, index) in list" :key="index" :title="item.docType === 0 ? familyData[item.type] : publicData[item.type]" :extra="items[current]">
          		<view class="order-content" @click="getDetail(item)">{{ item.content }}</view>
          	</uni-card>
          	<view class="uni-empty" v-if="list.length == 0">{{ loadingText }}</view>
@@ -30,7 +30,9 @@ export default {
 			activeColor: '#ed7a30',
 			current: 0,
 			styleType: 'text',
-			list: []
+			list: [],
+			familyData: [],
+			publicData: []
 		};
 	},
 	computed: {},
@@ -47,16 +49,49 @@ export default {
 		},
 		getDetail(item) {
 			uni.navigateTo({
-				url: '/pages/user/repair-order/detail?data=' + JSON.stringify(item.id)
+				url: '/pages/user/repair-order/detail?data=' + item._id
 			});
 		},
 		getRepairlist() {
-			let data = {
-				status: this.current
-			};
+			uniCloud.callFunction({
+				name: 'getCurrentDocByStatus',
+				data: {
+					status: this.current,
+					userId: this.$store.state.login_token
+				},
+				success: (res) => {
+					console.log('res', res);
+					this.list = res.result[0];
+				},
+				fail(error) {
+					console.log('error', error);
+				}
+			})
+			
+		},
+		typeName(item) {
+			if(item.docType === 0) {
+				return this.$store.state.familyData.filter(e => {
+					if(e.id === item.type) {
+						console.log('typename', e.typename);
+						return e.typename.toString();
+					}
+				})
+			} else {
+				return this.$store.state.publicData.filter(e => {
+					if(e.id === item.type) {
+						return e.typename.toString();
+					}
+				})
+			}
+		},
+		setFamilyPublicData() {
+			this.familyData = this.$store.state.familyData.map(x => (x.typename));
+			this.publicData = this.$store.state.publicData.map(x => (x.typename));
 		}
 	},
 	onLoad() {
+		this.setFamilyPublicData();
 		this.getRepairlist();
 	}
 };

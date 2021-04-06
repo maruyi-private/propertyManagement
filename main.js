@@ -18,6 +18,7 @@ Vue.prototype.$api = api
 Vue.prototype.$uitls = uitls
 Vue.prototype.$util = util
 Vue.prototype.$docType = { 报修: 0, 报事: 1 }
+Vue.prototype.$docStatus = { 待接单: 0, 已处理: 1, 处理中: 2, 已派单: 3, 待评价: 4 }
 
 App.mpType = 'app'
 

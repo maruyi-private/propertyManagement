@@ -1,1 +1,1 @@
-<view><view style="margin:10rpx;"><view class="header uni-ellipsis">{{strings.name}}</view><rich-text nodes="{{strings.content}}"></rich-text><view class="uni-text-right uni-ellipsis">{{strings.c_time}}</view></view></view>
+<view><view style="margin:10rpx;"><view class="header uni-ellipsis">{{strings.name}}</view><rich-text nodes="{{strings.content}}"></rich-text><view class="uni-text-right uni-ellipsis">{{$root.f0}}</view></view></view>

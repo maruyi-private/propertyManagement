@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 15));
+/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 15));
 
 
 
@@ -228,9 +228,9 @@ var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/
     };
   },
   computed: {
-    qiniuDatas: function qiniuDatas() {
-      return this.$store.state.qiniuData;
-    },
+    // qiniuDatas() {
+    // 	return this.$store.state.qiniuData;
+    // },
     types: function types() {
       return this.$store.state.publicData;
     },
@@ -273,78 +273,96 @@ var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/
       this.$Router.push({ name: 'add-person' });
     },
     //报事报修要上传的图片
-    imageUploadComplaint: function imageUploadComplaint(img) {
-      this.complaintImages = img;
-    },
+    // imageUploadComplaint(img) {
+    // 	this.complaintImages = img;
+    // },
 
-    imageUploads: function imageUploads() {var _this2 = this;
-      var _this = this;
-      return new Promise(function (resolve) {
-        var keys = [];
-        var token = _this2.qiniuDatas.Data;
-        var domain = _this2.qiniuDatas.http_domain;
-        var bucket = _this2.qiniuDatas.bucket;
-        _this.complaintImages.forEach(function (filePath) {
-          var key = 'sunest-' + _this2.nowDay + '-' + new Date().getTime() + '.jpg';
-          keys.push(key);
-          _qiniuUploader.default.upload(
-          filePath,
-          function (res) {
-            // resolve(keys);
-            // console.log('ressss: ' + JSON.stringify(res));
-            // 每个文件上传成功后,处理相关的事情
-          },
-          function (error) {
-            // resolve(error)
-          },
-          {
-            region: 'SCN',
-            domain: bucket, // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
-            key: key, // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
-            // 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
-            uptoken: token },
-
-          function (res) {
-            // console.log('上传进度', res.progress);
-            if (res.progress === 100) {
-              resolve(keys);
-            }
-            // console.log('已经上传的数据长度', res.totalBytesSent);
-            // console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend);
-          });
-
-        });
-      });
-    },
-    sub: function sub() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this, imgs, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                _this = _this3;
-                imgs = ''; //七牛云图片名
-                if (!(_this3.complaintImages.length !== 0)) {_context.next = 6;break;}_context.next = 5;return (
-                  _this3.imageUploads());case 5:imgs = _context.sent;case 6:
-
+    // imageUploads() {
+    // 	let _this = this;
+    // 	return new Promise(resolve => {
+    // 		let keys = [];
+    // 		let token = this.qiniuDatas.Data;
+    // 		let domain = this.qiniuDatas.http_domain;
+    // 		let bucket = this.qiniuDatas.bucket;
+    // 		_this.complaintImages.forEach(filePath => {
+    // 			let key = 'sunest-' + this.nowDay + '-' + new Date().getTime() + '.jpg';
+    // 			keys.push(key);
+    // 			qiniuUploader.upload(
+    // 				filePath,
+    // 				res => {
+    // 					// resolve(keys);
+    // 					// console.log('ressss: ' + JSON.stringify(res));
+    // 					// 每个文件上传成功后,处理相关的事情
+    // 				},
+    // 				error => {
+    // 					// resolve(error)
+    // 				},
+    // 				{
+    // 					region: 'SCN',
+    // 					domain: bucket, // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
+    // 					key: key, // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
+    // 					// 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
+    // 					uptoken: token
+    // 				},
+    // 				res => {
+    // 					// console.log('上传进度', res.progress);
+    // 					if(res.progress === 100){
+    // 						resolve(keys);
+    // 					}
+    // 					// console.log('已经上传的数据长度', res.totalBytesSent);
+    // 					// console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend);
+    // 				}
+    // 			);
+    // 		});
+    // 	});
+    // },
+    sub: function sub() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this2$types$_this2$i, _this2$person$_this2$;var _this, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                _this = _this2;
+                // let imgs = '';//七牛云图片名
+                // if (this.complaintImages.length !== 0) {
+                // 	 imgs = await this.imageUploads();
+                // }
                 data = {
-                  type: _this3.types[_this3.indexType].id,
-                  content: _this3.content,
-                  imgs: JSON.stringify(imgs),
-                  emergency: _this3.emergency,
-                  starttime: _this3.$uitls.toTimesTamp(_this3.times),
-                  endtime: _this3.$uitls.toTimesTamp(_this3.endtime),
-                  contact: _this3.person[_this3.personCurrent].id };if (
+                  type: (_this2$types$_this2$i = _this2.types[_this2.indexType]) === null || _this2$types$_this2$i === void 0 ? void 0 : _this2$types$_this2$i.id,
+                  content: _this2.content,
+                  // imgs: JSON.stringify(imgs),
+                  emergency: _this2.emergency,
+                  starttime: _this2.$uitls.toTimesTamp(_this2.times),
+                  endtime: _this2.$uitls.toTimesTamp(_this2.endtime),
+                  contact: (_this2$person$_this2$ = _this2.person[_this2.personCurrent]) === null || _this2$person$_this2$ === void 0 ? void 0 : _this2$person$_this2$.id,
+                  state: _this2.$docStatus.待接单,
+                  docType: _this2.$docType.报事 };if (
 
-                _this3.content) {_context.next = 10;break;}
+                _this2.content) {_context.next = 5;break;}
                 uni.showToast({
                   icon: 'none',
-                  title: '请填写报修内容' });return _context.abrupt("return");case 10:if (
+                  title: '请填写报修内容' });return _context.abrupt("return");case 5:if (
 
 
 
-                _this3.contact) {_context.next = 13;break;}
+                _this2.contact) {_context.next = 8;break;}
                 uni.showToast({
                   icon: 'none',
-                  title: '请先选择联系人' });return _context.abrupt("return");case 13:case "end":return _context.stop();}}}, _callee);}))();
+                  title: '请先选择联系人' });return _context.abrupt("return");case 8:
 
 
 
+                uniCloud.callFunction({
+                  name: 'addReportRepair',
+                  data: { data: data },
+                  success: function success() {
+                    uni.showToast({
+                      icon: 'none',
+                      title: '提交成功！' });
+
+                    setTimeout(function () {
+                      uni.navigateBack({
+                        delta: 1 });
+
+                    }, 1000);
+                  } });
+
+                console.log('data', data);case 10:case "end":return _context.stop();}}}, _callee);}))();
     },
     getNowTime: function getNowTime() {
       var date = new Date();
@@ -359,15 +377,14 @@ var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/
       }
     } },
 
-  mounted: function mounted() {
-    this.type = this.types[this.indexType].id;
-    this.contact = this.person[this.personCurrent].id;
-
+  mounted: function mounted() {var _this$types$this$inde, _this$person$this$per;
+    this.type = (_this$types$this$inde = this.types[this.indexType]) === null || _this$types$this$inde === void 0 ? void 0 : _this$types$this$inde.id;
+    this.contact = (_this$person$this$per = this.person[this.personCurrent]) === null || _this$person$this$per === void 0 ? void 0 : _this$person$this$per.id;
   },
   created: function created() {
     this.getNowTime();
   } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
 
 /***/ }),
 

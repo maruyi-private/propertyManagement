@@ -347,7 +347,7 @@ var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/
                   starttime: _this2.$uitls.toTimesTamp(_this2.times),
                   endtime: _this2.$uitls.toTimesTamp(_this2.endtime),
                   contact: _this2.person[_this2.personCurrent].id,
-                  state: 0, // 0：未处理 、1：已处理
+                  state: _this2.$docStatus.待接单,
                   docType: _this2.$docType.报修 };if (
 
                 _this2.content) {_context.next = 5;break;}

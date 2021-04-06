@@ -54,7 +54,20 @@ const store = new Vuex.Store({
 				id: 2
 			}
 		],
-		publicData: '', //投诉建议
+		publicData: [  //投诉建议类型
+			{
+				typename: '卫生',
+				id: 0
+			},
+			{
+				typename: '噪音',
+				id: 1
+			},
+			{
+				typename: '其它',
+				id: 2
+			}
+		],
 
 		pushMessage:'', //推送数据
 	},
