@@ -192,7 +192,8 @@ export default {
 				endtime:this.$uitls.toTimesTamp(this.endtime),
 				contact: this.person[this.personCurrent]?.id,
 				state: this.$docStatus.待接单,
-				docType: this.$docType.报事
+				docType: this.$docType.报事,
+				createtime: Date.parse(new Date())
 			};
 			if (!this.content) {
 				uni.showToast({

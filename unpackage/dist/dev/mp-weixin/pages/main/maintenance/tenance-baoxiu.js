@@ -348,7 +348,8 @@ var _qiniuUploader = _interopRequireDefault(__webpack_require__(/*! @/common/js/
                   endtime: _this2.$uitls.toTimesTamp(_this2.endtime),
                   contact: _this2.person[_this2.personCurrent].id,
                   state: _this2.$docStatus.待接单,
-                  docType: _this2.$docType.报修 };if (
+                  docType: _this2.$docType.报修,
+                  createtime: Date.parse(new Date()) };if (
 
                 _this2.content) {_context.next = 5;break;}
                 uni.showToast({

@@ -209,7 +209,9 @@ var _default =
       showImg: '',
       imgs: [],
       orderId: '',
-      repairData: {} };
+      repairData: {},
+      familyData: [],
+      publicData: [] };
 
   },
   computed: {
@@ -240,15 +242,20 @@ var _default =
       if (this.repairData.id) {
         this.$Router.push({ name: 'evaluate', params: { id: this.repairData.id } });
       }
+    },
+    setFamilyPublicData: function setFamilyPublicData() {
+      this.familyData = this.$store.state.familyData.map(function (x) {return x.typename;});
+      this.publicData = this.$store.state.publicData.map(function (x) {return x.typename;});
     } },
 
   onLoad: function onLoad(option) {
     this.orderId = option.data;
-    console.log(this.orderId);
+    this.setFamilyPublicData();
     this.getRepairDetail();
   },
   onShow: function onShow() {
     if (this.orderId) {
+      this.setFamilyPublicData();
       this.getRepairDetail();
     }
   } };exports.default = _default;

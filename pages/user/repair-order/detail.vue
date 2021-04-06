@@ -27,7 +27,7 @@
 			<view class="detail-person">
 				<view>
 					<view>
-						<text>【{{ repairData.typename }}】</text>
+						<text>【{{ repairData.docType === 0 ? familyData[repairData.type] : publicData[repairData.type] }}】</text>
 						<text>{{ repairData.content }}</text>
 					</view>
 					<image class="uni-common-showImg" v-for="(item, index) in imgs" :key="index" @click="showImgs(item)" :src="baseImgUrls + item" mode="aspectFit"></image>
@@ -77,7 +77,9 @@ export default {
 			showImg: '',
 			imgs: [],
 			orderId: '',
-			repairData: {}
+			repairData: {},
+			familyData: [],
+			publicData: []
 		};
 	},
 	computed: {
@@ -108,15 +110,20 @@ export default {
 			if(this.repairData.id){
 				this.$Router.push({ name: 'evaluate',params: { id: this.repairData.id } });
 			}
+		},
+		setFamilyPublicData() {
+			this.familyData = this.$store.state.familyData.map(x => (x.typename));
+			this.publicData = this.$store.state.publicData.map(x => (x.typename));
 		}
 	},
 	onLoad(option) {
 		this.orderId = option.data;
-		console.log(this.orderId);
+		this.setFamilyPublicData();
 		this.getRepairDetail();
 	},
 	onShow() {
 		if(this.orderId){
+			this.setFamilyPublicData();
 			this.getRepairDetail();
 		}
 	}
