@@ -72,13 +72,32 @@ export default {
 				content: text,
 				success: res => {
 					if (res.confirm) {
-						console.log('用户点击确定');
-						let data = {
-							point: stars,
-							id: this.id,
-							content: this.content
-						};
-						
+						uniCloud.callFunction({
+							name: 'addEvaluate',
+							data: {
+								point: stars,
+								id: this.id,
+								content: this.content,
+								state: this.$docStatus.已终结
+							},
+							success() {
+								uni.showToast({
+									icon: 'success',
+									title: '评价成功！'
+								});
+								setTimeout(function() {
+									uni.navigateBack({
+										delta: 2
+									})
+								}, 1000);
+							},
+							fail() {
+								uni.showToast({
+									icon: 'none',
+									title: '评价失败！'
+								})
+							}
+						})
 					}
 				}
 			});

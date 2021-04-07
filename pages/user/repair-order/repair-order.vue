@@ -36,7 +36,16 @@ export default {
 		};
 	},
 	computed: {},
-	onShow() {},
+	onShow() {
+		this.setFamilyPublicData();
+		this.getRepairlist();
+		uni.showLoading({
+			title: '加载中'
+		});
+		setTimeout(() => {
+			uni.hideLoading();
+		}, 1000);
+	},
 	onReachBottom: function() {
 		// console.log('我触底了要加载数据了: ' + JSON.stringify('我触底了要加载数据了'));
 	},

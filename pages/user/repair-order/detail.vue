@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="uni-common-content" v-if="repairData">
-			<!-- 接单流程 -->
+			<!-- 接单流程(拆分) -->
 			<view class="uni-timeline">
 				<view
 					class="uni-timeline-item "
@@ -42,7 +42,7 @@
 				</view>
 				<view class="uni-flex-btw">
 					<text class="color-font-gray">预约时间</text>
-					<text>{{ repairData.starttime | format(repairData.starttime) }}至{{ repairData.endtime | format(repairData.endtime) }}</text>
+					<text>{{ repairData.starttime | format(repairData.starttime) }}</text>
 				</view>
 				<view class="uni-flex-btw">
 					<text class="color-font-gray">报事人</text>
@@ -55,7 +55,7 @@
 			</view>
 		</view>
 		<!-- v-if="repairData.status === '待评价'" -->
-		<view class="uni-common-foot-btn" v-if="repairData.status === '待评价'" ><button type="primary" class="bg-gradient-btn" @click="evaluate">去评价</button></view>
+		<view class="uni-common-foot-btn" v-if="buttonShow()" ><button type="primary" class="bg-gradient-btn" @click="evaluate">去评价</button></view>
 		<!-- 管家说明 -->
 		<view class="uni-common-mark uni-flex-center" v-show="mark" @touchmove.stop.prevent="moveHandle">
 			<view class="uni-cell-100">
@@ -117,13 +117,16 @@ export default {
 			})
 		},
 		evaluate() {
-			if(this.repairData.id){
-				this.$Router.push({ name: 'evaluate',params: { id: this.repairData.id } });
+			if(this.repairData._id){
+				this.$Router.push({ name: 'evaluate',params: { id: this.repairData._id } });
 			}
 		},
 		setFamilyPublicData() {
 			this.familyData = this.$store.state.familyData.map(x => (x.typename));
 			this.publicData = this.$store.state.publicData.map(x => (x.typename));
+		},
+		buttonShow() {
+			if(this.repairData) return this.repairData.state === this.$docStatus.待评价;
 		}
 	},
 	onLoad(option) {
@@ -135,7 +138,7 @@ export default {
 		});
 		setTimeout(() => {
 		    uni.hideLoading();
-		}, 1500);
+		}, 1000);
 	},
 	onShow() {
 		if(this.orderId){

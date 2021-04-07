@@ -75,7 +75,8 @@ export default {
 	},
 	computed: {
 		lists() {
-			return this.$store.state.myHouse.allRooms;
+			// return this.$store.state.myHouse.allRooms;
+			return this.$store.state.myHouse;
 		},
 		myHouse() {
 			return this.$store.state.myHouse;
