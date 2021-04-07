@@ -251,6 +251,12 @@ __webpack_require__.r(__webpack_exports__);
   onLoad: function onLoad() {
     this.setFamilyPublicData();
     this.getRepairlist();
+    uni.showLoading({
+      title: '加载中' });
+
+    setTimeout(function () {
+      uni.hideLoading();
+    }, 1000);
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
 

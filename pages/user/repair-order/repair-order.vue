@@ -93,6 +93,12 @@ export default {
 	onLoad() {
 		this.setFamilyPublicData();
 		this.getRepairlist();
+		uni.showLoading({
+		    title: '加载中'
+		});
+		setTimeout(() => {
+		    uni.hideLoading();
+		}, 1000);
 	}
 };
 </script>

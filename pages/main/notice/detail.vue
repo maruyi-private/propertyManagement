@@ -3,12 +3,13 @@
 		<view style="margin: 10upx;">
 			<view class="header uni-ellipsis" >{{strings.name}}</view>
 			<rich-text :nodes="strings.content"></rich-text>
-			<view class="uni-text-right uni-ellipsis" >{{ strings.ctime | formatDate(strings.ctime) }}</view>
+			<view class="uni-text-right uni-ellipsis" >{{ strings.ctime | format(strings.ctime) }}</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import { formatDate } from '@/util/api.js';
 	export default{
 		data() {
 			return {
@@ -17,12 +18,8 @@
 			}
 		},
 		filters: {
-			formatDate(date) {
-				const nDate = new Date(date);
-				const year = nDate.getFullYear();
-				const month = nDate.getMonth().toString().padStart(2, 0);
-				const day = nDate.getDay().toString().padStart(2, 0);
-				return year + "-" + month + "-" + day;
+			format(date) {
+				return formatDate(date);
 			}
 		},
 		methods:{

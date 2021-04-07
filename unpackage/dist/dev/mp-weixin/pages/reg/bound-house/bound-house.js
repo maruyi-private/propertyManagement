@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var catLabel = function catLabel() {__webpack_require__.e(/*! require.ensure | components/cat-label/cat-label */ "components/cat-label/cat-label").then((function () {return resolve(__webpack_require__(/*! @/components/cat-label/cat-label.vue */ 513));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni, uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var catLabel = function catLabel() {__webpack_require__.e(/*! require.ensure | components/cat-label/cat-label */ "components/cat-label/cat-label").then((function () {return resolve(__webpack_require__(/*! @/components/cat-label/cat-label.vue */ 514));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

@@ -32,17 +32,17 @@
 					</view>
 					<image class="uni-common-showImg" v-for="(item, index) in imgs" :key="index" @click="showImgs(item)" :src="baseImgUrls + item" mode="aspectFit"></image>
 				</view>
-				<view class="color-font-gray">创建于 {{ repairData.createtime }}</view>
+				<view class="color-font-gray">创建于 {{ repairData.createtime | format(repairData.createtime) }}</view>
 			</view>
 			<!-- 报事人详情 -->
 			<view class="detail-person">
 				<view class="uni-flex-btw">
 					<text class="color-font-gray">地址</text>
-					<text>{{ repairData.villagename }}{{ repairData.room }}</text>
+					<text>{{ repairData.villagename }}  {{ repairData.room }}</text>
 				</view>
 				<view class="uni-flex-btw">
 					<text class="color-font-gray">预约时间</text>
-					<text>{{ repairData.yuyuetime }}</text>
+					<text>{{ repairData.starttime | format(repairData.starttime) }}至{{ repairData.endtime | format(repairData.endtime) }}</text>
 				</view>
 				<view class="uni-flex-btw">
 					<text class="color-font-gray">报事人</text>
@@ -69,7 +69,13 @@
 </template>
 
 <script>
+import { formatDate } from '@/util/api.js';
 export default {
+	filters: {
+		format(date, format) {
+			return formatDate(date);
+		}
+	},
 	data() {
 		return {
 			key: '',
@@ -102,7 +108,11 @@ export default {
 				name: 'getDocById',
 				data: { id: this.orderId },
 				success: (res) => {
+					console.log('res', res.result.data);
 					this.repairData = res.result.data[0];
+				},
+				fail() {
+					console.log('error');
 				}
 			})
 		},
@@ -120,6 +130,12 @@ export default {
 		this.orderId = option.data;
 		this.setFamilyPublicData();
 		this.getRepairDetail();
+		uni.showLoading({
+		    title: '加载中'
+		});
+		setTimeout(() => {
+		    uni.hideLoading();
+		}, 1500);
 	},
 	onShow() {
 		if(this.orderId){

@@ -6,7 +6,7 @@
 				<view class="content">
 					{{item.content}}
 				</view>
-				<view class="foot">{{item.ctime | formatDate(item.ctime)}}</view>
+				<view class="foot">{{item.ctime | format(item.ctime)}}</view>
 			</view>
 		</view>
 		<view class="uni-empty" v-if="list.length === 0">
@@ -16,6 +16,7 @@
 	</view>
 </template>
 <script>
+import { formatDate } from '@/util/api.js';
 export default {
 	data() {
 		return {
@@ -26,12 +27,8 @@ export default {
 		};
 	},
 	filters: {
-		formatDate(date) {
-			const nDate = new Date(parseInt(date));
-			const year = nDate.getFullYear();
-			const month = nDate.getMonth().toString().padStart(2, 0);
-			const day = nDate.getDay().toString().padStart(2, 0);
-			return year + "-" + month + "-" + day;
+		format(date) {
+			return FormData(date);
 		}
 	},
 	onReachBottom: function() {

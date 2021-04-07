@@ -200,13 +200,14 @@ export default {
 			// 		//TODO handle the exception
 			// 	}
 			// }
+			console.log(Date.parse(new Date()));
 			let data = {
 				type: this.types[this.indexType].id,
 				content: this.content,
 				// imgs: JSON.stringify(imgs),
 				emergency: this.emergency,
-				starttime: this.$uitls.toTimesTamp(this.times),
-				endtime: this.$uitls.toTimesTamp(this.endtime),
+				starttime: this.$uitls.toTimesTamp(this.times) * 1000,
+				endtime: this.$uitls.toTimesTamp(this.endtime) * 1000,
 				contact: this.person[this.personCurrent].id,
 				state: this.$docStatus.待接单,
 				docType: this.$docType.报修,

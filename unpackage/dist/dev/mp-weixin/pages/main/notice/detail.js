@@ -97,7 +97,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var f0 = _vm._f("formatDate")(_vm.strings.ctime, _vm.strings.ctime)
+  var f0 = _vm._f("format")(_vm.strings.ctime, _vm.strings.ctime)
 
   _vm.$mp.data = Object.assign(
     {},
@@ -140,31 +140,28 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {
-      strings: {},
-      id: '' };
+/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-  },
-  filters: {
-    formatDate: function formatDate(date) {
-      var nDate = new Date(date);
-      var year = nDate.getFullYear();
-      var month = nDate.getMonth().toString().padStart(2, 0);
-      var day = nDate.getDay().toString().padStart(2, 0);
-      return year + "-" + month + "-" + day;
+
+
+
+
+
+
+
+
+
+var _api = __webpack_require__(/*! @/util/api.js */ 472); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { strings: {}, id: '' };}, filters: { format: function format(date) {return (0, _api.formatDate)(date);
     } },
 
   methods: {

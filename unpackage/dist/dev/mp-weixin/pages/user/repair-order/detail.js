@@ -97,6 +97,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var f0 = _vm.repairData
+    ? _vm._f("format")(_vm.repairData.createtime, _vm.repairData.createtime)
+    : null
+  var f1 = _vm.repairData
+    ? _vm._f("format")(_vm.repairData.starttime, _vm.repairData.starttime)
+    : null
+  var f2 = _vm.repairData
+    ? _vm._f("format")(_vm.repairData.endtime, _vm.repairData.endtime)
+    : null
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        f0: f0,
+        f1: f1,
+        f2: f2
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -130,136 +149,152 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {
-      key: '',
-      mark: false,
-      showImg: '',
-      imgs: [],
-      orderId: '',
-      repairData: {},
-      familyData: [],
-      publicData: [] };
+/* WEBPACK VAR INJECTION */(function(uniCloud, uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-  },
-  computed: {
-    baseImgUrls: function baseImgUrls() {
-      return this.$store.state.baseImgUrl;
-    } },
 
-  methods: {
-    moveHandle: function moveHandle() {},
-    closeMark: function closeMark() {
-      this.mark = !this.mark;
-    },
-    //图片预览
-    showImgs: function showImgs(urlImg) {
-      this.mark = !this.mark;
-      this.showImg = this.baseImgUrls + urlImg;
-    },
-    getRepairDetail: function getRepairDetail() {var _this = this;
-      uniCloud.callFunction({
-        name: 'getDocById',
-        data: { id: this.orderId },
-        success: function success(res) {
-          _this.repairData = res.result.data[0];
-        } });
 
-    },
-    evaluate: function evaluate() {
-      if (this.repairData.id) {
-        this.$Router.push({ name: 'evaluate', params: { id: this.repairData.id } });
-      }
-    },
-    setFamilyPublicData: function setFamilyPublicData() {
-      this.familyData = this.$store.state.familyData.map(function (x) {return x.typename;});
-      this.publicData = this.$store.state.publicData.map(function (x) {return x.typename;});
-    } },
 
-  onLoad: function onLoad(option) {
-    this.orderId = option.data;
-    this.setFamilyPublicData();
-    this.getRepairDetail();
-  },
-  onShow: function onShow() {
-    if (this.orderId) {
-      this.setFamilyPublicData();
-      this.getRepairDetail();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _api = __webpack_require__(/*! @/util/api.js */ 472); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { filters: { format: function format(date, _format) {return (0, _api.formatDate)(date);} }, data: function data() {return { key: '', mark: false, showImg: '', imgs: [], orderId: '', repairData: {}, familyData: [], publicData: [] };}, computed: { baseImgUrls: function baseImgUrls() {return this.$store.state.baseImgUrl;} }, methods: { moveHandle: function moveHandle() {}, closeMark: function closeMark() {this.mark = !this.mark;}, //图片预览
+    showImgs: function showImgs(urlImg) {this.mark = !this.mark;this.showImg = this.baseImgUrls + urlImg;}, getRepairDetail: function getRepairDetail() {var _this = this;uniCloud.callFunction({ name: 'getDocById', data: { id: this.orderId }, success: function success(res) {console.log('res', res.result.data);_this.repairData = res.result.data[0];}, fail: function fail() {console.log('error');} });}, evaluate: function evaluate() {if (this.repairData.id) {this.$Router.push({ name: 'evaluate', params: { id: this.repairData.id } });}}, setFamilyPublicData: function setFamilyPublicData() {this.familyData = this.$store.state.familyData.map(function (x) {return x.typename;});this.publicData = this.$store.state.publicData.map(function (x) {return x.typename;});} }, onLoad: function onLoad(option) {this.orderId = option.data;this.setFamilyPublicData();this.getRepairDetail();uni.showLoading({ title: '加载中' });setTimeout(function () {uni.hideLoading();}, 1500);}, onShow: function onShow() {if (this.orderId) {this.setFamilyPublicData();this.getRepairDetail();
     }
   } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 12)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
